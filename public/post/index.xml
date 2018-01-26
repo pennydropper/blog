@@ -6,10 +6,22 @@
     <description>Recent content in Posts on Pennydropper - Lightbulb moments in Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en_us</language>
-    <lastBuildDate>Sat, 06 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 25 Jan 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>About</title>
+      <link>/2018/01/25/about/</link>
+      <pubDate>Thu, 25 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/01/25/about/</guid>
+      <description>James is a data scientist with over 20 years of commercial experience in fast moving consumer goods (FMCG), dairy and telecommunications.
+James’ work in FMCG progressed from Supply Chain analysis and optimisation to demand planning and sales forecasting. Sales forecasting aroused James’ curiosity into studying a Masters’ Degree in Statistics and Operations Research, which he completed with Distinction in 2015.
+James is fascinated with many aspects of data science:
+ Sourcing data from a wide range of sources; Data visualisation and designing engaging charts; Predictive modelling and machine learning; Finding clever and effective ways to tell the data story.</description>
+    </item>
     
     <item>
       <title>Weighing up the data</title>
