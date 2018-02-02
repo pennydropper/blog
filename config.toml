@@ -1,0 +1,40 @@
+baseURL = "https://pennydropper.netlify.com/"
+title = "Pennydropper - Lightbulb moments in Data Science"
+
+publishDir = "public"
+author = "James Northrop"
+relativeurls = true
+languagecode = "en_us"
+theme = "hugo-tanka"
+
+pygmentsstyle      = "vs"
+pygmentscodefences = true
+
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+
+[params]
+  sitename = "Pennydropper - Lightbulb moments in Data Science"
+
+[permalinks]
+    post = "/:year/:month/:day/:slug/"
+
+[[menu.main]]
+    name = "Home"
+    url = "https://pennydropper.netlify.com"
+    weight = 1
+[[menu.main]]
+    name = "About"
+    url = "https://pennydropper.netlify.com/about/"
+    weight = 2
+[[menu.main]]
+    name = "GitHub"
+    url = "https://github.com/PennyDropper"
+    weight = 3
+[[menu.main]]
+    name = "LinkedIn"
+    url = "https://www.linkedin.com/in/james-northrop-63651119/"
+    weight = 4
+[[menu.main]]
+    name = "Twitter"
+    url = "https://twitter.com/@JimNorthy"
+    weight = 5

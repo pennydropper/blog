@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en_us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
+  
+
+  <link rel="icon" type="image/png" href="https://pennydropper.netlify.com/favicon.png">
+
+  <title>
+    
+    
+     Weighing up the data 
+    
+  </title>
+  <link rel="canonical" href="https://pennydropper.netlify.com/post/weighing-up-the-data/">
+
+  <link rel="stylesheet" href="https://pennydropper.netlify.com/css/fonts.css" />
+  <link rel="stylesheet" href="https://pennydropper.netlify.com/css/style.css" />
+
+  
+</head>
+
+<body>
+<section id=nav>
+  <h1><a href="https://pennydropper.netlify.com/">Pennydropper - Lightbulb moments in Data Science</a></h1>
+  <ul>
+    
+    <li><a href="https://pennydropper.netlify.com">Home</a></li>
+    
+    <li><a href="https://github.com/PennyDropper">GitHub</a></li>
+    
+    <li><a href="https://www.linkedin.com/in/james-northrop-63651119/">LinkedIn</a></li>
+    
+    <li><a href="https://twitter.com/@JimNorthy">Twitter</a></li>
+    
+  </ul>
+</section>
+
+
+<section id=content>
+  <h1> Weighing up the data </h1>
+
+  <div id=sub-header>
+    James · 2018/01/06 · 7 minute read
+  </div>
+
+  <div class="entry-content">
+    <pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ✔ ggplot2 2.2.1     ✔ purrr   0.2.4
+## ✔ tibble  1.3.4     ✔ dplyr   0.7.4
+## ✔ tidyr   0.7.2     ✔ stringr 1.2.0
+## ✔ readr   1.1.1     ✔ forcats 0.2.0</code></pre>
+<pre><code>## ── Conflicts ───────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(forcats)
+library(lubridate)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;lubridate&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:base&#39;:
+## 
+##     date</code></pre>
+<pre class="r"><code>library(modelr)            # to perform modelling
+library(ggridges)          # Ridgeline plots
+
+data = &#39;./data&#39;</code></pre>
+<div id="import-data" class="section level1">
+<h1>Import Data</h1>
+<p>Had to hard-code the format of the dates</p>
+<pre class="r"><code>wts.raw &lt;- read_csv(paste0(data, &quot;/&quot;, &quot;James weight.csv&quot;),
+                    col_types = cols(
+                      WcComm = col_date(format = &quot;%d-%b-%Y&quot;),
+                      Sun = col_double(),
+                      Mon = col_double(),
+                      Tue = col_double(),
+                      Wed = col_double(),
+                      Thu = col_double(),
+                      Fri = col_double(),
+                      Sat = col_double(),
+                      Comment = col_character(),
+                      WkMin = col_double(),
+                      WkMax = col_double()
+                    ))
+
+# wts.raw %&gt;% glimpse()
+
+wts.raw %&gt;% summary()</code></pre>
+<pre><code>## Warning in format.POSIXlt(as.POSIXlt(x), ...): unknown timezone &#39;zone/tz/
+## 2017c.1.0/zoneinfo/Australia/Melbourne&#39;</code></pre>
+<pre><code>##      WcComm                Sun             Mon             Tue       
+##  Min.   :2017-03-26   Min.   :85.70   Min.   :86.10   Min.   :84.90  
+##  1st Qu.:2017-05-31   1st Qu.:86.55   1st Qu.:86.70   1st Qu.:86.30  
+##  Median :2017-08-06   Median :87.30   Median :87.50   Median :86.90  
+##  Mean   :2017-08-06   Mean   :88.27   Mean   :88.34   Mean   :87.85  
+##  3rd Qu.:2017-10-11   3rd Qu.:89.35   3rd Qu.:88.85   3rd Qu.:88.75  
+##  Max.   :2017-12-17   Max.   :94.00   Max.   :95.70   Max.   :93.60  
+##       Wed             Thu             Fri             Sat      
+##  Min.   :85.30   Min.   :84.80   Min.   :85.20   Min.   :85.4  
+##  1st Qu.:86.30   1st Qu.:86.10   1st Qu.:86.45   1st Qu.:86.4  
+##  Median :86.80   Median :86.90   Median :87.20   Median :86.8  
+##  Mean   :87.70   Mean   :87.65   Mean   :87.84   Mean   :87.7  
+##  3rd Qu.:88.55   3rd Qu.:88.30   3rd Qu.:88.70   3rd Qu.:88.6  
+##  Max.   :93.60   Max.   :92.30   Max.   :92.80   Max.   :92.3  
+##    Comment              WkMin           WkMax      
+##  Length:39          Min.   :84.80   Min.   :86.20  
+##  Class :character   1st Qu.:86.00   1st Qu.:86.95  
+##  Mode  :character   Median :86.40   Median :87.60  
+##                     Mean   :87.18   Mean   :88.64  
+##                     3rd Qu.:87.85   3rd Qu.:89.50  
+##                     Max.   :92.20   Max.   :95.70</code></pre>
+<p>Convert the data into tidy format.</p>
+<pre class="r"><code>wkdays = c(&quot;Sun&quot;, &quot;Mon&quot;, &quot;Tue&quot;, &quot;Wed&quot;, &quot;Thu&quot;, &quot;Fri&quot;, &quot;Sat&quot;)
+
+wts.clean &lt;- wts.raw %&gt;%
+  gather(Sun:Sat, key = &#39;wk.day&#39;, value = wt, convert = TRUE) %&gt;%
+  mutate(wk.day = factor(wk.day, levels = wkdays),
+         wk.day.val = as.numeric(wk.day),
+         date = WcComm + wk.day.val - 1) %&gt;%
+  select(date, wt, Comment, wk.day)
+
+wts.clean %&gt;%
+  ggplot(aes(x = date, y = wt)) +
+  geom_point(aes(colour = wk.day)) +
+  geom_smooth(span = 0.2) +
+  labs(title = &quot;Daily weight with line of best fit&quot;,
+       x = &quot;Date in 2017&quot;,
+       y = &quot;Weight (kg)&quot;) +
+  scale_x_date(date_breaks = &quot;1 month&quot;,
+               date_labels = &quot;%b-%y&quot;)</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39;</code></pre>
+<p><img src="https://pennydropper.netlify.com/post/2018-01-06-weighing-up-the-data_files/figure-html/tidy.wt-1.png" width="672" /></p>
+<p>This chart shows that weight loss was consistent and steady from April through to the start of August.</p>
+<p>Since August, the weight loss has tapered off but there still appears to be a gradual decline in weight.</p>
+<p>There is a definite dip in weight at the start of September, which coincides with a week when James battled a cold. His weight then picks up in the latter half of September, which coincides with 50th birthday celebrations. His weight does not really fall below the smoothed line again until mid-October.</p>
+</div>
+<div id="day-of-the-week-effect" class="section level1">
+<h1>Day of the Week Effect</h1>
+<p>The “line of best fit” in the chart above is derived using the <a href="https://en.wikipedia.org/wiki/Local_regression">Loess</a> approach.</p>
+<pre class="r"><code>wt.lo &lt;- wts.clean %&gt;%
+  mutate(date.nm = as.numeric(date)) %&gt;%
+  loess(wt ~ date.nm, data = ., span = 0.2)
+
+wts.pred &lt;- wts.clean %&gt;%
+  mutate(date.nm = as.numeric(date)) %&gt;%
+  add_predictions(wt.lo) %&gt;%
+  add_residuals(wt.lo)
+
+# wts.pred %&gt;% glimpse()</code></pre>
+<p>By adding the predictions and residuals to the data set, we can understand some of the variations better.</p>
+<pre class="r"><code>wts.pred %&gt;%
+  ggplot(aes(x = date, y = resid)) +
+  geom_point(aes(colour = wk.day)) +
+  scale_x_date(date_breaks = &quot;1 month&quot;,
+               date_labels = &quot;%b-%y&quot;) +
+  geom_hline(yintercept = 0, colour = &quot;red&quot;) +
+  labs(title = &quot;Daily residuals&quot;,
+       subtitle = &quot;Difference between the recorded weight and smoothed line&quot;,
+       x = &quot;&quot;,
+       y = &quot;Difference from local smoothed line&quot;)</code></pre>
+<p><img src="https://pennydropper.netlify.com/post/2018-01-06-weighing-up-the-data_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>The spread of the points above and below the zero-line looks reasonable, though there are periods consistently above or below the line:</p>
+<ul>
+<li>Around the end of April and beginning of May, the recorded weights are consistently above the line.</li>
+<li>Weights are consistently below the line for the first half of September, which coincides with a cold, as discussed.</li>
+<li>Weights are above the line for almost 4 weeks from mid-September, which coincides with 50th birthday celebrations.</li>
+</ul>
+<p>What if we look at the distribution of residuals based on the day of the week. We will differentiate between the period before 1 August and after 1 August, which is around where we observe an “inflection” point.</p>
+<pre class="r"><code>wts.pred %&gt;%
+  mutate(period = factor(if_else(date &lt; dmy(&quot;1/8/2017&quot;), 0, 1), 
+                            levels = c(0, 1), labels = c(&quot;Pre-Aug&quot;, &quot;Post-Aug&quot;)))%&gt;%
+  ggplot() +
+  geom_boxplot(aes(x = wk.day, y = resid, color = wk.day)) +
+  facet_grid(. ~ period) +
+  coord_cartesian(ylim = c(-2, 2)) +
+  labs(title = &quot;Spread of the residuals base on the day of the week&quot;,
+       subtitle = &quot;Box-plot shows each quartile and the mean&quot;,
+       x = &quot;&quot;,
+       y = &quot;Difference from local smoothed line&quot;)</code></pre>
+<p><img src="https://pennydropper.netlify.com/post/2018-01-06-weighing-up-the-data_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>The box plots show some interesting features.</p>
+<p>For the Pre-August period:</p>
+<ul>
+<li>The median residual for sunday is around +0.25kg, whereas the median residual for Saturday is around -0.25kg.</li>
+<li>This is consistent with different eating patterns and activity levels on weekends compared to weekedays.</li>
+</ul>
+<p>For the Post-August period:</p>
+<ul>
+<li>The highest residual is Monday, with a median of around +0.5kg.</li>
+<li>The lowest residual is Thursday with a median of around -0.2kg.</li>
+<li>Friday’s and Saturday’s median residual is close to zero.</li>
+</ul>
+<p>For both the pre and post August period, the spread is relqtively tight compared to the other days of the week.</p>
+<div id="adjust-for-day-of-the-week" class="section level3">
+<h3>Adjust for Day of the Week</h3>
+<p>What if we adjust for the day of the week effect.</p>
+<pre class="r"><code>wts.adj &lt;- wts.pred %&gt;%
+  mutate(period = factor(if_else(date &lt; dmy(&quot;1/8/2017&quot;), 0, 1), 
+                            levels = c(0, 1), labels = c(&quot;Pre-Aug&quot;, &quot;Post-Aug&quot;))) %&gt;%
+  group_by(period, wk.day) %&gt;%
+  mutate(wk.day.eff = median(resid),
+         wt.adj = wt - wk.day.eff)
+
+wts.adj %&gt;% glimpse()</code></pre>
+<pre><code>## Observations: 273
+## Variables: 10
+## $ date       &lt;date&gt; 2017-03-26, 2017-04-02, 2017-04-09, 2017-04-16, 20...
+## $ wt         &lt;dbl&gt; 93.3, 93.4, 94.0, 91.4, 92.2, 91.1, 91.9, 90.6, 90....
+## $ Comment    &lt;chr&gt; NA, NA, NA, NA, &quot;Indian dinner, ANZAC Lunch&quot;, NA, &quot;...
+## $ wk.day     &lt;fctr&gt; Sun, Sun, Sun, Sun, Sun, Sun, Sun, Sun, Sun, Sun, ...
+## $ date.nm    &lt;dbl&gt; 17251, 17258, 17265, 17272, 17279, 17286, 17293, 17...
+## $ pred       &lt;dbl&gt; 93.34654, 92.93559, 92.53133, 92.13955, 91.73426, 9...
+## $ resid      &lt;dbl&gt; -0.04653601, 0.46440661, 1.46866922, -0.73954766, 0...
+## $ period     &lt;fctr&gt; Pre-Aug, Pre-Aug, Pre-Aug, Pre-Aug, Pre-Aug, Pre-A...
+## $ wk.day.eff &lt;dbl&gt; 0.3349779, 0.3349779, 0.3349779, 0.3349779, 0.33497...
+## $ wt.adj     &lt;dbl&gt; 92.96502, 93.06502, 93.66502, 91.06502, 91.86502, 9...</code></pre>
+<pre class="r"><code>wts.pred %&gt;%
+  mutate(period = factor(if_else(date &lt; dmy(&quot;1/8/2017&quot;), 0, 1), 
+                            levels = c(0, 1), labels = c(&quot;Pre-Aug&quot;, &quot;Post-Aug&quot;))) %&gt;%
+  group_by(period, wk.day) %&gt;%
+  summarise(wk.day.eff = median(resid)) %&gt;%
+  spread(key = period, value = wk.day.eff, convert = TRUE) %&gt;%
+  knitr::kable(caption = &quot;Day of the week adjustments&quot;,
+               digits = 2)</code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-4">Table 1: </span>Day of the week adjustments</caption>
+<thead>
+<tr class="header">
+<th align="left">wk.day</th>
+<th align="right">Pre-Aug</th>
+<th align="right">Post-Aug</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Sun</td>
+<td align="right">0.33</td>
+<td align="right">0.12</td>
+</tr>
+<tr class="even">
+<td align="left">Mon</td>
+<td align="right">0.21</td>
+<td align="right">0.34</td>
+</tr>
+<tr class="odd">
+<td align="left">Tue</td>
+<td align="right">0.05</td>
+<td align="right">-0.10</td>
+</tr>
+<tr class="even">
+<td align="left">Wed</td>
+<td align="right">-0.25</td>
+<td align="right">-0.12</td>
+</tr>
+<tr class="odd">
+<td align="left">Thu</td>
+<td align="right">-0.31</td>
+<td align="right">-0.29</td>
+</tr>
+<tr class="even">
+<td align="left">Fri</td>
+<td align="right">-0.22</td>
+<td align="right">0.12</td>
+</tr>
+<tr class="odd">
+<td align="left">Sat</td>
+<td align="right">-0.38</td>
+<td align="right">0.08</td>
+</tr>
+</tbody>
+</table>
+<p>We have created an adjusted weight, which takes into account the day of the week.</p>
+<pre class="r"><code>wts.adj %&gt;%
+  ggplot(aes(x = date, y = wt.adj)) +
+  geom_point(aes(colour = wk.day)) +
+  geom_smooth(span = 0.2) +
+  labs(title = &quot;Daily adjusted weight with line of best fit&quot;,
+       x = &quot;&quot;,
+       y = &quot;Adjusted Weight (kg)&quot;) +
+  scale_x_date(date_breaks = &quot;1 month&quot;,
+               date_labels = &quot;%b-%y&quot;)</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39;</code></pre>
+<p><img src="https://pennydropper.netlify.com/post/2018-01-06-weighing-up-the-data_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Not surprisingly, the line looks similar.</p>
+<pre class="r"><code>wt.lo &lt;- wts.adj %&gt;%
+  loess(wt.adj ~ date.nm, data = ., span = 0.2)
+
+wts.adj.pred &lt;- wts.adj %&gt;%
+  rename(pred.raw = pred,
+         resid.raw = resid) %&gt;%
+  add_predictions(wt.lo) %&gt;%
+  mutate(pred = pred + wk.day.eff,            # Reverse the day of week transformation
+         resid = pred - wt)
+
+# wts.adj.pred %&gt;% glimpse()</code></pre>
+<p>We have now added the day of the week transformation to the model.</p>
+<p>Now, let’s see how the residuals look.</p>
+<pre class="r"><code>wts.adj.pred %&gt;%
+  ggplot() +
+  geom_boxplot(aes(x = wk.day, y = resid, color = wk.day)) +
+  facet_grid(. ~ period) +
+  coord_cartesian(ylim = c(-2, 2)) +
+  labs(title = &quot;Spread of the residuals base on the day of the week&quot;,
+       subtitle = &quot;Box-plot shows each quartile and the mean&quot;,
+       x = &quot;&quot;,
+       y = &quot;Difference from local smoothed line&quot;)</code></pre>
+<p><img src="https://pennydropper.netlify.com/post/2018-01-06-weighing-up-the-data_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>One final piece of analysis: how do the</p>
+<pre class="r"><code>wts.adj.pred %&gt;%
+  group_by(period) %&gt;%
+  summarise(resid.mad = mad(resid),
+            resid.sd = sd(resid, na.rm = TRUE),
+            pred.corr = cor(pred, wt),
+            resid.raw.mad = mad(resid.raw),
+            resid.raw.sd = sd(resid.raw, na.rm = TRUE),
+            pred.raw.corr = cor(pred.raw, wt)) %&gt;%
+  knitr::kable(caption = &quot;Residual scores&quot;,
+               digits = 3)</code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-8">Table 2: </span>Residual scores</caption>
+<thead>
+<tr class="header">
+<th align="left">period</th>
+<th align="right">resid.mad</th>
+<th align="right">resid.sd</th>
+<th align="right">pred.corr</th>
+<th align="right">resid.raw.mad</th>
+<th align="right">resid.raw.sd</th>
+<th align="right">pred.raw.corr</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Pre-Aug</td>
+<td align="right">0.553</td>
+<td align="right">0.587</td>
+<td align="right">0.962</td>
+<td align="right">0.594</td>
+<td align="right">0.630</td>
+<td align="right">0.956</td>
+</tr>
+<tr class="even">
+<td align="left">Post-Aug</td>
+<td align="right">0.459</td>
+<td align="right">0.472</td>
+<td align="right">0.631</td>
+<td align="right">0.498</td>
+<td align="right">0.513</td>
+<td align="right">0.535</td>
+</tr>
+</tbody>
+</table>
+<p>We can see that there is a marginal improvement in the residuals as a result of this transformation.</p>
+</div>
+</div>
+
+  </div>
+
+  <div id=links>
+    
+      <a class="basic-alignment left" href="https://pennydropper.netlify.com/post/2015-07-23-r-rmarkdown/">&laquo; Hello R Markdown</a>
+    
+    
+  </div>
+</section>
+
+<section id="comments">
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+      
+      
+      if (window.location.hostname == "localhost")
+                return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = '@jamesnorthrop';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+  
+  
+<script src="https://pennydropper.netlify.com/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+
+</body>
+</html>
+
