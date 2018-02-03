@@ -1,7 +1,7 @@
 ---
 title: Weighing up the data
 author: James
-date: '2018-01-06'
+date: '2018-02-03'
 categories:
   - personal
   - R
@@ -171,83 +171,169 @@ wts.adj %&gt;%
 <p>Now, let’s see how the residuals look. They certainly appear as though they are closer to zero.</p>
 <p><img src="/post/2018-01-06-weighing-up-the-data_files/figure-html/daily.resid.adj-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p><img src="/post/2018-01-06-weighing-up-the-data_files/figure-html/wt.adj.resid.dow-1.png" width="672" /></p>
-<p>One final piece of analysis: how do the</p>
-<pre class="r"><code>wts.adj.pred %&gt;%
-  group_by(period) %&gt;%
-  summarise(resid.mad = mad(resid),
-            resid.sd = sd(resid, na.rm = TRUE),
-            pred.corr = cor(pred, wt),
-            resid.raw.mad = mad(resid.raw),
-            resid.raw.sd = sd(resid.raw, na.rm = TRUE),
-            pred.raw.corr = cor(pred.raw, wt)) %&gt;%
-  knitr::kable(caption = &quot;Residual scores&quot;,
-               digits = 3)</code></pre>
+</div>
+<div id="what-is-the-average-spread" class="section level2">
+<h2>What is the average spread</h2>
+<p>One final piece of analysis: how much does the day-to-day weigh-in vary from the “true” weight, both before and after the day-of-the-week adjustment?</p>
+<p><strong>Without day-of-week adjustment</strong></p>
 <table>
-<caption><span id="tab:unnamed-chunk-1">Table 1: </span>Residual scores</caption>
+<caption>(#tab:summ.stats.raw)Residual scores without the day-of-the-week adjustment</caption>
 <thead>
 <tr class="header">
 <th align="left">period</th>
-<th align="right">resid.mad</th>
-<th align="right">resid.sd</th>
-<th align="right">pred.corr</th>
-<th align="right">resid.raw.mad</th>
-<th align="right">resid.raw.sd</th>
-<th align="right">pred.raw.corr</th>
+<th align="right">Average day-to-day variation</th>
+<th align="right">Standard Deviation</th>
+<th align="right">Correlation between predicted and actual</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left">Pre-Aug</td>
-<td align="right">0.560</td>
-<td align="right">0.595</td>
-<td align="right">0.961</td>
-<td align="right">0.582</td>
-<td align="right">0.635</td>
-<td align="right">0.955</td>
+<td align="right">0.58</td>
+<td align="right">0.64</td>
+<td align="right">0.95</td>
 </tr>
 <tr class="even">
 <td align="left">Aug-Dec</td>
-<td align="right">0.470</td>
-<td align="right">0.476</td>
-<td align="right">0.617</td>
-<td align="right">0.492</td>
-<td align="right">0.518</td>
-<td align="right">0.517</td>
+<td align="right">0.49</td>
+<td align="right">0.52</td>
+<td align="right">0.52</td>
 </tr>
 <tr class="odd">
 <td align="left">Post Xmas</td>
-<td align="right">0.497</td>
-<td align="right">0.485</td>
-<td align="right">0.512</td>
-<td align="right">0.475</td>
-<td align="right">0.532</td>
-<td align="right">0.354</td>
+<td align="right">0.47</td>
+<td align="right">0.53</td>
+<td align="right">0.35</td>
 </tr>
 </tbody>
 </table>
-<p>We can see that there is a marginal improvement in the residuals as a result of this transformation.</p>
+<p><strong>With day-of-week adjustment</strong></p>
+<table>
+<caption>(#tab:summ.stats.adj)Residual scores with the day-of-the-week adjustment</caption>
+<thead>
+<tr class="header">
+<th align="left">period</th>
+<th align="right">Average day-to-day variation</th>
+<th align="right">Standard Deviation</th>
+<th align="right">Correlation between predicted and actual</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Pre-Aug</td>
+<td align="right">0.56</td>
+<td align="right">0.59</td>
+<td align="right">0.96</td>
+</tr>
+<tr class="even">
+<td align="left">Aug-Dec</td>
+<td align="right">0.47</td>
+<td align="right">0.48</td>
+<td align="right">0.62</td>
+</tr>
+<tr class="odd">
+<td align="left">Post Xmas</td>
+<td align="right">0.50</td>
+<td align="right">0.49</td>
+<td align="right">0.51</td>
+</tr>
+<tr class="even">
+<td align="left">We can see t</td>
+<td align="right">hat there is a marginal improve</td>
+<td align="right">ment in the residuals</td>
+<td align="right">as a result of this transformation.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="summary" class="section level1">
+<h1>Summary</h1>
+<p>This analysis set out to visualise my daily recorded weights, particularly as I finally succeeded in adopting habits that represent my “Health and Wellbeing” habits.</p>
+<p>What surprised me was the day-to-day variation in my recorded weights. The explanations for the variation include:</p>
+<ol style="list-style-type: decimal">
+<li>Levels of hydration. This is particularly evident in the week/commencing 4 September, when I battled a cold, lost fluids and cosequently lost about 700g from 2 weeks earlier.</li>
+<li>Other physiological reasons, such as the food in my digestive system.</li>
+<li>Day-of-the-week variations, driven by different habits on different days of the week, such as how much I exercise and how much I eat and drink I consume. This contrasts particuarly on working days and weekends.</li>
+<li>Random, day-to-day effects, which I attribute to variations in the scales.</li>
+</ol>
+<p>There are many opinions that people should only weigh themselves weekly or fortnightly as the day-to-day variation can by distracting and demoralising. My opinion is that people should find what works for them. What works for me is a daily weigh-in with an understanding that there is a random aspect to the reading that I should factor in. If I weighed myself only weekly, I may strike a day with a positive random reading, which after a week of effort and discipline, could dishearten me.</p>
+<p>A quick review of “weight loss tracker” apps in Apple’s App Store found that only 2 of the top apps show weights graphically, and neither of these graphs depicted anywhere near the day-to-day variation I experienced. One actually had a very smooth decline. A real opportunity for app developers is to add a feature that estimates the user’s true weight after adjusting for day-to-day variations.</p>
+</div>
+<div id="for-the-technically-minded" class="section level1">
+<h1>For the technically minded</h1>
+<div id="optimising-the-smoothing-span" class="section level2">
+<h2>Optimising the Smoothing Span</h2>
+<p>This analysis assumed that the ideal Loess span setting for smoothing was 0.2, which was through pure judgement.</p>
+<p>I grappled with how to find an optimised setting for span.</p>
+<p>My first attempt was to use k-folds to test a range of span settings. Interestingly, the “optimum” value was 0.06, which was also the minimum span that the algorithm would accept. I optimised the span setting based on minimising the RMS.</p>
+<pre class="r"><code># Adapted from https://stats.stackexchange.com/questions/2002/how-do-i-decide-what-span-to-use-in-loess-regression-in-r
+# on 29 Jan 2018
+
+wts.model &lt;- wts.pred %&gt;%
+  filter(date &lt; ymd(&quot;2017/12/25&quot;))
+
+span.seq &lt;- seq(from = 0.06, to = 0.95, by = 0.05) #explores range of spans
+k &lt;- 10 #number of folds
+set.seed(1) # replicate results
+folds &lt;- sample(x = 1:k, size = nrow(wts.model), replace = TRUE)
+cv.error.mtrx &lt;- matrix(rep(x = NA, times = k * length(span.seq)), 
+                        nrow = length(span.seq), ncol = k)
+
+for(i in 1:length(span.seq)) {
+  for(j in 1:k) {
+    loess.fit &lt;- loess(wt ~ date.nm, data = wts.model[folds != j, ], span = span.seq[i])
+    preds &lt;- predict(object = loess.fit, newdata = wts.model[folds == j, ])
+    cv.error.mtrx[i, j] &lt;- mean((wts.model$wt[folds == j] - preds)^2, na.rm = TRUE)
+  }
+}
+
+cv.errors &lt;- rowMeans(cv.error.mtrx)
+# cv.errors
+
+best.span.i &lt;- which.min(cv.errors)
+best.span &lt;- span.seq[best.span.i]
+
+wts.model %&gt;%
+  ggplot(aes(x = date, y = wt)) +
+  geom_point(size = 0.5) + # aes(colour = wk.day)) +
+  geom_smooth(span = 0.2, method = &quot;loess&quot;, aes(colour = &quot;blue&quot;)) +
+  geom_smooth(span = best.span, method = &quot;loess&quot;, aes(colour = &quot;red&quot;), se = FALSE) +
+  labs(title = &quot;Daily weight with alternate lines of best fit&quot;,
+       subtitle = &quot;Red line is \&quot;optimised\&quot; but appears to overfit&quot;,
+       x = &quot;&quot;,
+       y = &quot;Weight (kg)&quot;) +
+  scale_x_date(date_breaks = &quot;1 month&quot;,
+               date_labels = &quot;%b-%y&quot;) +
+  scale_y_continuous(breaks = c(84:96)) +
+  coord_cartesian(ylim = c(84, 96)) +
+  scale_colour_manual(&quot;Smoothing span&quot;,
+                      values = c(blue = &quot;blue&quot;, red = &quot;red&quot;),
+                      labels = c(&quot;0.2&quot;, as.character(best.span)))</code></pre>
+<p><img src="/post/2018-01-06-weighing-up-the-data_files/figure-html/optim.span.raw-1.png" width="672" /></p>
+<p>The “optimised” span setting appears to overfit the points. The day of the week effect seems particularly evident in the pre-August period, which counters the point of finding a line of best fit.</p>
 </div>
 <div id="autoregression-in-the-residuals" class="section level2">
 <h2>Autoregression in the Residuals</h2>
+<p>The autogregression of the residuals gives a clue as to why the k-folds method failed to find a satisfactory optimised span. The correlation factor for lag 1 is around 0.34, indicating a mild correlation between successive readings. Hence, the optimisation algorithm will fail to correct when a single reading is missing.</p>
+<p>Interestingly, the correlation with lag 7 is completetely insignificant, which challenges the validity of my day-of-the-week adjustment. I confess that I cannot explain this or suggest a better alternative.</p>
 <pre class="r"><code>par( mar=c(3.1, 4.7, 2.3, 0),
      cex.lab = 0.8,
      cex.axis = 0.8) 
 
 wts.pred %&gt;%
-  filter(date &gt; ymd(&quot;2017/8/1&quot;), date &lt;= ymd(&quot;2017/12/24&quot;)) %&gt;%
+  filter(date &lt; ymd(&quot;2017/8/1&quot;), date &lt;= ymd(&quot;2017/12/24&quot;)) %&gt;%
   arrange(date) %&gt;%
   select(resid) %&gt;%
   as.ts() %&gt;%
-  Pacf(main = &quot;&quot;, #Autocorrelation function of the residuals&quot;,
-      sub = &quot;Minor correlation between the residuals from one day to the next, and one day to 10 days time&quot;,
-      xlab = &quot;&quot;, #Lag between pairs of days&quot;,
-      ylab = &quot;&quot;, #&quot;Correlation factor of residuals between pairs of days&quot;,
+  Acf(main = &quot;&quot;,
+      xlab = &quot;&quot;,
+      ylab = &quot;&quot;, 
       cex.lab = 0.8,
-      # mgp=c(-1, 0, 0),
       cex.axis = 0.8)
 mtext(side=1, text=&quot;Lag between pairs of days&quot;, line=1.8)
 mtext(side=2, text=&quot;Correlation factor of weights between pairs of days&quot;, line=1.8)
-mtext(side=3, text=&quot;Partial autocorrelation function of the weights&quot;, line=0.5)</code></pre>
+mtext(side=3, text=&quot;Autocorrelation of the residuals prior to day-of-week adjustment&quot;, line=0.5)</code></pre>
 <p><img src="/post/2018-01-06-weighing-up-the-data_files/figure-html/resid.acf-1.png" width="672" /></p>
 </div>
 </div>

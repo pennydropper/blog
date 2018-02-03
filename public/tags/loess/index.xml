@@ -6,18 +6,19 @@
     <description>Recent content in Loess on Pennydropper - Lightbulb moments in Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en_us</language>
-    <lastBuildDate>Sat, 06 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Feb 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/loess/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Weighing up the data</title>
-      <link>/2018/01/06/weighing-up-the-data/</link>
-      <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
+      <link>/2018/02/03/weighing-up-the-data/</link>
+      <pubDate>Sat, 03 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/01/06/weighing-up-the-data/</guid>
-      <description>library(tidyverse) ## ── Attaching packages ────────────────────────────────── tidyverse 1.2.1 ── ## ✔ ggplot2 2.2.1 ✔ purrr 0.2.4 ## ✔ tibble 1.3.4 ✔ dplyr 0.7.4 ## ✔ tidyr 0.7.2 ✔ stringr 1.2.0 ## ✔ readr 1.1.1 ✔ forcats 0.2.0 ## ── Conflicts ───────────────────────────────────── tidyverse_conflicts() ── ## ✖ dplyr::filter() masks stats::filter() ## ✖ dplyr::lag() masks stats::lag() library(forcats) library(lubridate) ## ## Attaching package: &amp;#39;lubridate&amp;#39; ## The following object is masked from &amp;#39;package:base&amp;#39;: ## ## date library(modelr) # to perform modelling library(ggridges) # Ridgeline plots data = &amp;#39;.</description>
+      <guid>/2018/02/03/weighing-up-the-data/</guid>
+      <description>Introduction Health and wellbeing is one of my 5 core values, and I extended our new beginning at the start of 2017 to establish new habits to live these values. The new habits included:
+ Cycling to work where possible; Cutting out “gratuitous” sugar, i.e. confectionary and cakes; Reducing the evening meal to practically a snack, thus making it my smallest meal of the day. Following the 7 minute workout 3 days per week, though I’ve embellished the exercises and extended it to a 30 minute workout 3 times per week.</description>
     </item>
     
   </channel>
