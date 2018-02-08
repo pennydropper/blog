@@ -239,6 +239,7 @@ For the Aug-Xmas period:
 
 What if we adjust for the day of the week effect?  Statistically speaking, this is transforming the data to remove the effect of the day of the week (assuming my hypothesis that the day of the week does affect my weigh-in).
 
+**Day of the week adjustments**
 ```{r dow.adj, echo=FALSE}
 wts.pred <- wts.pred %>%
   mutate(period = factor(case_when(
@@ -263,7 +264,7 @@ wts.adj %>%
                format = "html",
                align = c("l", rep("r", 3)))
 ```
-**Day of the week adjustments**
+
 
 
 This table represents the assumed "day-of-the-week" effect to subtract from my raw readings.
@@ -343,8 +344,8 @@ wts.adj.pred %>%
 ## What is the average spread
 One final piece of analysis: how much does the day-to-day weigh-in vary from the "true" weight, both before and after the day-of-the-week adjustment?
 
-**Without day-of-week adjustment**
-
+**Without day-of-week adjustment**  
+**Residual scores**
 ```{r summ.stats.raw, echo=FALSE}
 wts.adj.pred %>%
   group_by(period) %>%
@@ -356,10 +357,10 @@ wts.adj.pred %>%
                digits = 2)
 
 ```
-**Residual scores without the day-of-the-week adjustment**
 
-**With day-of-week adjustment**
 
+**With day-of-week adjustment**  
+**Residual scores**
 ```{r summ.stats.adj, echo=FALSE}
 wts.adj.pred %>%
   group_by(period) %>%
@@ -371,7 +372,7 @@ wts.adj.pred %>%
                digits = 2)
 
 ```
-**Residual scores with the day-of-the-week adjustment**
+
 
 We can see that there is a marginal improvement in the residuals as a result of this transformation.
 
