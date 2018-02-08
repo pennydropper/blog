@@ -7,6 +7,9 @@ relativeurls = true
 languagecode = "en_us"
 theme = "hugo-tanka"
 
+googleAnalytics = "UA-113795291-1"
+disqusShortname = "pennydropper-blog"
+
 pygmentsstyle      = "vs"
 pygmentscodefences = true
 

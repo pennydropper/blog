@@ -8,15 +8,17 @@ categories:
 tags: []
 ---
 
-James is a data scientist with over 20 years of commercial experience in fast moving consumer goods (FMCG), dairy and telecommunications.  
+James is a data scientist with over 20 years of commercial experience in Fast Moving Consumer Goods (FMCG), dairy and telecommunications.  
 
-James' work in FMCG progressed from Supply Chain analysis and optimisation to demand planning and sales forecasting.  Sales forecasting aroused James' curiosity into studying a Masters' Degree in Statistics and Operations Research, which he completed with Distinction in 2015.
+James' data journey progressed from Supply Chain analysis and optimisation to demand planning and sales forecasting.  With a desire to use data better and smarter, James completed a Masters' Degree in Statistics and Operations Research with Distinction in 2015.
 
-James is fascinated with many aspects of data science:
+James is fascinated by data science, and in particular:
 
-* Sourcing data from a wide range of sources;
+* Obtaining data from a wide range of sources;
 * Data visualisation and designing engaging charts;
 * Predictive modelling and machine learning;
 * Finding clever and effective ways to tell the data story.
 
-This blog aims to present some of James' work in different aspects of the data science life cycle, from sourcing the data to predicting results and engagingly telling the story.  Each story represents a "lightbulb moment in data science"!
+Read on to explore some of James' work in different aspects of the data science life cycle, from sourcing the data to predicting results and engagingly telling the story.
+
+Each post tells a "lightbulb moment in data science"!

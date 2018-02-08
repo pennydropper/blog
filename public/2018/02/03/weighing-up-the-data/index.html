@@ -129,9 +129,6 @@
 <h3>Adjust for Day of the Week</h3>
 <p>What if we adjust for the day of the week effect? Statistically speaking, this is transforming the data to remove the effect of the day of the week (assuming my hypothesis that the day of the week does affect my weigh-in).</p>
 <table>
-<caption>
-(#tab:dow.adj)Day of the week adjustments
-</caption>
 <thead>
 <tr>
 <th style="text-align:left;">
@@ -249,6 +246,7 @@ Sat
 </tr>
 </tbody>
 </table>
+<p><strong>Day of the week adjustments</strong></p>
 <p>This table represents the assumed “day-of-the-week” effect to subtract from my raw readings.</p>
 <p>With these adjustments, how does my weight projectory now look?</p>
 <p><img src="../../../../post/2018-01-06-weighing-up-the-data_files/figure-html/plot.wt.adj-1.png" width="672" style="display: block; margin: auto;" /></p>
@@ -262,9 +260,6 @@ Sat
 <p>One final piece of analysis: how much does the day-to-day weigh-in vary from the “true” weight, both before and after the day-of-the-week adjustment?</p>
 <p><strong>Without day-of-week adjustment</strong></p>
 <table>
-<caption>
-(#tab:summ.stats.raw)Residual scores without the day-of-the-week adjustment
-</caption>
 <thead>
 <tr>
 <th style="text-align:left;">
@@ -326,11 +321,9 @@ Post Xmas
 </tr>
 </tbody>
 </table>
+<p><strong>Residual scores without the day-of-the-week adjustment</strong></p>
 <p><strong>With day-of-week adjustment</strong></p>
 <table>
-<caption>
-(#tab:summ.stats.adj)Residual scores with the day-of-the-week adjustment
-</caption>
 <thead>
 <tr>
 <th style="text-align:left;">
@@ -392,6 +385,7 @@ Post Xmas
 </tr>
 </tbody>
 </table>
+<p><strong>Residual scores with the day-of-the-week adjustment</strong></p>
 <p>We can see that there is a marginal improvement in the residuals as a result of this transformation.</p>
 </div>
 </div>
@@ -505,7 +499,7 @@ mtext(side=3, text=&quot;Autocorrelation of the residuals prior to day-of-week a
                 return;
 
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = '';
+      var disqus_shortname = 'pennydropper-blog';
       dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 })();
@@ -515,6 +509,13 @@ mtext(side=3, text=&quot;Autocorrelation of the residuals prior to day-of-week a
 
 
   
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-113795291-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
   
 <script src="../../../../js/math-code.js"></script>
 <script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
