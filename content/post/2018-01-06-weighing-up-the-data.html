@@ -425,7 +425,7 @@ wts.model %&gt;%
      cex.axis = 0.8) 
 
 wts.pred %&gt;%
-  filter(date &lt; ymd(&quot;2017/8/1&quot;), date &lt;= ymd(&quot;2017/12/24&quot;)) %&gt;%
+  filter(date &lt;= ymd(&quot;2017/12/24&quot;)) %&gt;%
   arrange(date) %&gt;%
   select(resid) %&gt;%
   as.ts() %&gt;%
@@ -439,4 +439,9 @@ mtext(side=2, text=&quot;Correlation factor of weights between pairs of days&quo
 mtext(side=3, text=&quot;Autocorrelation of the residuals prior to day-of-week adjustment&quot;, line=0.5)</code></pre>
 <p><img src="/post/2018-01-06-weighing-up-the-data_files/figure-html/resid.acf-1.png" width="672" /></p>
 </div>
+</div>
+<div id="other-references" class="section level1">
+<h1>Other References</h1>
+<p><a href="https://github.com/pennydropper/weigh-up-the-data">Code in GitHub</a></p>
+<p>Link to <a href="https://pennydropper.shinyapps.io/wtcharts/">Shiny webpage</a> with interactive controls.</p>
 </div>

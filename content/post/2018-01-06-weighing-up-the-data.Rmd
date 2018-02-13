@@ -460,7 +460,7 @@ par( mar=c(3.1, 4.7, 2.3, 0),
      cex.axis = 0.8) 
 
 wts.pred %>%
-  filter(date < ymd("2017/8/1"), date <= ymd("2017/12/24")) %>%
+  filter(date <= ymd("2017/12/24")) %>%
   arrange(date) %>%
   select(resid) %>%
   as.ts() %>%
@@ -476,3 +476,8 @@ mtext(side=3, text="Autocorrelation of the residuals prior to day-of-week adjust
 
 ```
 
+# Other References
+
+[Code in GitHub](https://github.com/pennydropper/weigh-up-the-data)
+
+Link to [Shiny webpage](https://pennydropper.shinyapps.io/wtcharts/) with interactive controls.
