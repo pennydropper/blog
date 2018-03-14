@@ -173,11 +173,8 @@ full.ratings %>%
 
 
 
-<<<<<<< HEAD
+
 ```{r fig.width=13, fig.height=6, echo=FALSE}
-=======
-```{r fig.width=13, fig.height=6, echo=TRUE}
->>>>>>> 20ae903c03df3424e96fab4d13521b428a9d6d27
 
 rtngs.plot.data <- calc.margin(afl.results) %>%
   select(seas:home, !!as.name(optim.by)) %>%
@@ -316,9 +313,6 @@ This chart shows that there are very few sequences of incorrect tips by the mode
 
 <<<<<<< HEAD
 ```{r fig.width=13, echo=FALSE, fig.height=9}
-=======
-```{r fig.width=13, echo=FALSE}
->>>>>>> 20ae903c03df3424e96fab4d13521b428a9d6d27
 
 rtngs.plot.data <- calc.margin(afl.results) %>%
   select(seas:home, !!as.name(optim.by)) %>%
@@ -393,14 +387,16 @@ pred.bins <- act.with.pred(afl.results, optim.by) %>%
             games = n()) %>%
   ungroup()
 
+bin.width <- 0.1
+
 act.with.pred(afl.results, optim.by) %>%
   filter(seas > 2013) %>%
   arrange(rnd) %>%
   select(seas, rnd, tm, opp, win.prob.tm, act.hm) %>%
-  mutate(act.hm = factor(act.hm, levels = -1:1, labels = c("loss", "draw", "win")) ) %>%
-         # win.prob.tm = round(win.prob.tm / 0.05) * 0.05) %>%
+  mutate(act.hm = factor(act.hm, levels = -1:1, labels = c("loss", "draw", "win")) ,
+         win.prob.tm = round(win.prob.tm / bin.width) * bin.width) %>%
   ggplot(aes(x = win.prob.tm)) +
-  geom_bar(stat = "count", aes(fill = act.hm), colour = "#737373", binwidth = 0.1) +
+  geom_bar(aes(fill = act.hm), colour = "#737373") +
   coord_cartesian(xlim = c(0, 1)) +
   scale_x_continuous(breaks = seq(0, 1, .1)) +
   scale_fill_manual("", values = c("loss" = "#f5f5f5", "draw" = "#c7eae5", "win" = "#01665e")) +
@@ -500,12 +496,8 @@ The match results data was in an extremely untidy format and wrangling the data 
 **More sophisticated plotting**  
 There are features of some of these charts that I'm using for my first time.  Since I started this analysis, there have been numerous times when I've had an idea from nowhere that has forced me to learn new functionality.  I hope that you, the reader, have found these charts somewhat intuitive, interesting and enlightening.
 
-<<<<<<< HEAD
 ## If only I could get more data
-=======
-### If only I can get more data
->>>>>>> 20ae903c03df3424e96fab4d13521b428a9d6d27
-One irritation I have with the AFL competition is the difficulty in sourcing useful data to feed the amatear analyst.  As an example, I had to resort to scraping match results from an unoffical website, [AFL Tables](https://afltables.com/afl/afl_index.html), even though many high profile professional sports make the data freely available to download.
+One irritation with the AFL competition is the difficulty in sourcing useful data to feed the amatear analyst.  As an example, I had to resort to scraping match results from an unoffical website, [AFL Tables](https://afltables.com/afl/afl_index.html), even though many high profile professional sports make the data freely available to download.
 
 The league, most clubs and the media subscribe to [Champion Data](https://www.championdata.com/index.php/sport/afl.html) and some of the data is available in untidy format in some newspapers, though the data is difficult to scrape from websites and, in any case, is subject to copyright.
 

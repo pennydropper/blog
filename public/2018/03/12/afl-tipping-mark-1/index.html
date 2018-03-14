@@ -1,21 +1,58 @@
----
-title: AFL Tipping Mark 1
-author: James Northrop
-date: '2018-03-12'
-slug: afl-tipping-mark-1
-categories:
-  - personal
-  - R
-  - sport
-tags:
-  - forecasting
-  - elo
-  - visualisation
----
+<!DOCTYPE html>
+<html lang="en_us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
+  
+
+  <link rel="icon" type="image/png" href="../../../../favicon.png">
+
+  <title>
+    
+    
+     AFL Tipping Mark 1 
+    
+  </title>
+  <link rel="canonical" href="https://pennydropper.netlify.com/2018/03/12/afl-tipping-mark-1/">
+
+  <link rel="stylesheet" href="../../../../css/fonts.css" />
+  <link rel="stylesheet" href="../../../../css/style.css" />
+
+  
+</head>
+
+<body>
+<section id=nav>
+  <h1><a href="../../../../">Pennydropper - Lightbulb moments in Data Science</a></h1>
+  <ul>
+    
+    <li><a href="https://pennydropper.netlify.com">Home</a></li>
+    
+    <li><a href="https://pennydropper.netlify.com/about/">About</a></li>
+    
+    <li><a href="https://github.com/PennyDropper">GitHub</a></li>
+    
+    <li><a href="https://www.linkedin.com/in/james-northrop-63651119/">LinkedIn</a></li>
+    
+    <li><a href="https://twitter.com/@JimNorthy">Twitter</a></li>
+    
+  </ul>
+</section>
 
 
+<section id=content>
+  <h1> AFL Tipping Mark 1 </h1>
 
-<div id="introduction" class="section level2">
+  <div id=sub-header>
+    James Northrop · 2018/03/12 · 10 minute read
+  </div>
+
+  <div class="entry-content">
+    <div id="introduction" class="section level2">
 <h2>Introduction</h2>
 <p>Just like many other high-profile sports with an extended round-robin series, complementary competions have spun off the AFL season for amateurs followers. These tipping competions are particularly prevalent in work environments and social groups and are quite distinct from betting competions. The most frequent format, by far, for tipping competions features tippers submitting a tip for each game of the round, with the scores tallied at the end of the round.</p>
 <p>Can data science find the “silver bullet” to tip AFL winners? Many punters would love to know. This blog reports on some analysis of AFL results since 2013 and determines if statistical models do actually offer the “silver bullet”.</p>
@@ -30,9 +67,9 @@ tags:
 <div id="basic-statistics-about-afl-games" class="section level2">
 <h2>Basic statistics about AFL Games</h2>
 <p>The most fundamental statistic in an AFL game is each team’s score at the end of a game and the margin betwen the winning and losing team, and the most frequent margin in most recent seasons has been 12 to 24 points. In the 2017 season, about 24% of games had a margin in this range, with about 22% of games decided by less than 12 points (2 goals).</p>
-<p><img src="/post/2018-03-12-afl-tipping-mark-1_files/figure-html/margins.plot-1.png" width="672" /></p>
+<p><img src="../../../../post/2018-03-12-afl-tipping-mark-1_files/figure-html/margins.plot-1.png" width="672" /></p>
 <p>Season 2017 was a better season for the liklihood of close results, with about half of the games decided by 23 points or less and about 87% of games decided by less than 60 points (10 goals).</p>
-<p><img src="/post/2018-03-12-afl-tipping-mark-1_files/figure-html/Frequency%20of%20different%20margins%20absolute-1.png" width="672" /></p>
+<p><img src="../../../../post/2018-03-12-afl-tipping-mark-1_files/figure-html/Frequency%20of%20different%20margins%20absolute-1.png" width="672" /></p>
 <p>Other statistics captured but only partly used in this analysis with potential for later include:</p>
 <ul>
 <li>The relative scores of the two teams rather than the absolute scores.
@@ -59,7 +96,7 @@ tags:
 </ul>
 <p><strong>Scoring Accuracy</strong><br />
 Losing teams tend to see only about half of their scoring shots converted to goals, whereas winning teams tend to see 55% or more of their scoring shots converted as goals.</p>
-<p><img src="/post/2018-03-12-afl-tipping-mark-1_files/figure-html/Scoring%20accuracy%20plot-1.png" width="672" /></p>
+<p><img src="../../../../post/2018-03-12-afl-tipping-mark-1_files/figure-html/Scoring%20accuracy%20plot-1.png" width="672" /></p>
 </div>
 <div id="the-tipping-model" class="section level2">
 <h2>The Tipping Model</h2>
@@ -71,8 +108,8 @@ Losing teams tend to see only about half of their scoring shots converted to goa
 <p>The tipping model is a variation on the commonly used <a href="https://en.wikipedia.org/wiki/Elo_rating_system">Elo rating system</a>, variations of which are used by FIFA for their world rankings and the popular Nate Silver’s <a href="https://fivethirtyeight.com/features/how-we-calculate-nba-elo-ratings/">FiveThirtyEight</a>. My model was adapted from these sites and in particular from <a href="https://thearcfooty.com/2016/12/29/introducing-the-arcs-ratings-system/">The Arc Footy, graphed</a> site. As The Arc suggests, Elo is a solid and relatively simple general purpose model that produces good estimates of margins and likelihood of winning, though it is less accurate than more advanced algorithms.</p>
 <p><strong>Ratings Ladder at the end of 2017 Home and Away Season</strong></p>
 <p>This chart shows the ratings at the end of the 2017 Home and Away Season, i.e. before the finals. AFL fans may be surprised to see that Richmond is only fourth on this ladder, but it is worth remembering that Richmond were only 3rd on the ladder with a modest percentage of 118% (flattered by 2 convincing wins in the last 2 rounds). In summary, Richmond won almost all of the games it was expected to but had fewer strong wins. It may also surprise to see Sydney second on the rankings when they finished 6th on the AFL ladder. However, Sydney started the sesaon quite slowly and finished very strongly with a percentage of 127%.</p>
-<p><img src="/post/2018-03-12-afl-tipping-mark-1_files/figure-html/ratings.ladder-1.png" width="672" /></p>
-<p><img src="/post/2018-03-12-afl-tipping-mark-1_files/figure-html/unnamed-chunk-1-1.png" width="1248" /></p>
+<p><img src="../../../../post/2018-03-12-afl-tipping-mark-1_files/figure-html/ratings.ladder-1.png" width="672" /></p>
+<p><img src="../../../../post/2018-03-12-afl-tipping-mark-1_files/figure-html/unnamed-chunk-1-1.png" width="1248" /></p>
 <p>For an interactive view of all teams, view my <a href="https://pennydropper.shinyapps.io/AFLRatings/">Shiny Page</a>.</p>
 </div>
 <div id="how-good-is-the-model" class="section level2">
@@ -83,23 +120,23 @@ Losing teams tend to see only about half of their scoring shots converted to goa
 <p>For this analysis, I made a number of comparisons with the odds and line margins offered by betting agencies using data downloaded from <a href="http://www.aussportsbetting.com/data/historical-afl-results-and-odds-data/">Australia Sports Betting</a>.</p>
 <p><strong>Results</strong><br />
 Out of the 4 seasons from 2014 to 2017, the model exceeded the betting agencies in 2014 and almost tied in 2017.</p>
-<p><img src="/post/2018-03-12-afl-tipping-mark-1_files/figure-html/multi-season.res.tips-1.png" width="672" /></p>
+<p><img src="../../../../post/2018-03-12-afl-tipping-mark-1_files/figure-html/multi-season.res.tips-1.png" width="672" /></p>
 <p><strong>Predicting the margin</strong><br />
-In terms of predicting the game margins, the model and betting agencies are remarkably close. In most season’s, the betting agencies’ margin estimates are slightly better though the model peformed better in the 2017 season. <img src="/post/2018-03-12-afl-tipping-mark-1_files/figure-html/multi-season.res.marg-1.png" width="672" /></p>
+In terms of predicting the game margins, the model and betting agencies are remarkably close. In most season’s, the betting agencies’ margin estimates are slightly better though the model peformed better in the 2017 season. <img src="../../../../post/2018-03-12-afl-tipping-mark-1_files/figure-html/multi-season.res.marg-1.png" width="672" /></p>
 <p><strong>Game by Game Review</strong></p>
 <p>This comprehensive plot shows all 198 games in the 2017 season.</p>
 <p>Each game is represented as a box and is colour coded to show if the model predicted correctly, whereas the box’s margin indicates if the betting agencies tipped the game correctly.</p>
 <p>Inside each box are 3 bars, representing the final margin in favour of the team, the model’s predicted margin and the betting agencies’ predicted margin.</p>
 <p>This chart shows that there are very few sequences of incorrect tips by the model. Sydney was incorrectly tipped for rounds 1 to 6 which was due to their surprisingly slow start given their momentum at the end of the 2016 season. The model also incorrectly tipped the Collingwood games from rounds 2 to 7, which was matched by the betting agencie’s incorrect tips.</p>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD <img src="/post/2018-03-12-afl-tipping-mark-1_files/figure-html/unnamed-chunk-2-1.png" width="1248" /></p>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD <img src="../../../../post/2018-03-12-afl-tipping-mark-1_files/figure-html/unnamed-chunk-2-1.png" width="1248" /></p>
 </div>
 <div id="performance-of-estimated-likelihood" class="section level3">
 <h3>Performance of Estimated Likelihood</h3>
 <p>These plots show that the distribution of estimated likelihoods (probabilities) is approximately bell shaped, which is to be expected. Fortunately, the games with a higher estimated likelihood seem to associate with more wins, which is to be expected.</p>
-<p><img src="/post/2018-03-12-afl-tipping-mark-1_files/figure-html/hist.probs-1.png" width="672" /></p>
+<p><img src="../../../../post/2018-03-12-afl-tipping-mark-1_files/figure-html/hist.probs-1.png" width="672" /></p>
 <p>This plot shows the prevalence of home teams winning, based on the estimated likelihood of the home team winning. For instance, there are 10 games out of 198 in 2017 where the estimated likelihood of the home team winning was around 0.20, meaning that we would expect the home team to win 2 of those 10 games (20%). I actual fact, 6 of those 10 home teams with 0.2 likelihood of winning actually won (60%).</p>
 <p>The diagonal line represents where we expect the bars to end.</p>
-<p><img src="/post/2018-03-12-afl-tipping-mark-1_files/figure-html/plot%20probs%20vs%20act-1.png" width="672" /> There are a few interesting features in this chart:</p>
+<p><img src="../../../../post/2018-03-12-afl-tipping-mark-1_files/figure-html/plot%20probs%20vs%20act-1.png" width="672" /> There are a few interesting features in this chart:</p>
 <ul>
 <li>There are no likelihoods less than 0.075 and none greater than 0.875, suggesting that the model may struggle with outliers.</li>
 <li>Out of the 16 (rounded) likelihoods between 0 and 1, 4 are clearly below the line, 1 (0.70) is on the line and 11 of the 16 are above the line.
@@ -114,7 +151,7 @@ In terms of predicting the game margins, the model and betting agencies are rema
 </ul></li>
 </ul>
 <p><strong>Probability Performance for 4 Seasons</strong></p>
-<p>A review of the likelihoods over the 4 seasons suggests that 2017 with it’s tendency to understate the likelihood may be an anomoly. 2016 is similar though 2015 appears to overestimate likelihoods and 2014 appears more like what we expect. <img src="/post/2018-03-12-afl-tipping-mark-1_files/figure-html/prob.perf.4.seasons-1.png" width="672" /></p>
+<p>A review of the likelihoods over the 4 seasons suggests that 2017 with it’s tendency to understate the likelihood may be an anomoly. 2016 is similar though 2015 appears to overestimate likelihoods and 2014 appears more like what we expect. <img src="../../../../post/2018-03-12-afl-tipping-mark-1_files/figure-html/prob.perf.4.seasons-1.png" width="672" /></p>
 <div id="final-word-on-the-model" class="section level4">
 <h4>Final word on the model</h4>
 <p>Winning a tipping competition will still require few ounces of luck, particularly in larger competitions. The winner will only win by taking risks.</p>
@@ -146,3 +183,48 @@ There are features of some of these charts that I’m using for my first time. S
 <p>The league, most clubs and the media subscribe to <a href="https://www.championdata.com/index.php/sport/afl.html">Champion Data</a> and some of the data is available in untidy format in some newspapers, though the data is difficult to scrape from websites and, in any case, is subject to copyright.</p>
 <p>One day, I would love to analyse data on inside-50s, tackles, effective disposals, contested ball, disposal efficiency and even scoring shot locations.</p>
 </div>
+
+  </div>
+
+  <div id=links>
+    
+      <a class="basic-alignment left" href="https://pennydropper.netlify.com/2018/02/03/weighing-up-the-data/">&laquo; Weighing up the data</a>
+    
+    
+  </div>
+</section>
+
+<section id="comments">
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+      
+      
+      if (window.location.hostname == "localhost")
+                return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'pennydropper-blog';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+  
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-113795291-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+  
+
+
+</body>
+</html>
+

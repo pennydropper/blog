@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://pennydropper.netlify.com/2018/03/12/afl-tipping-mark-1/</loc>
+    <lastmod>2018-03-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://pennydropper.netlify.com/2018/02/03/weighing-up-the-data/</loc>
     <lastmod>2018-02-03T00:00:00+00:00</lastmod>
   </url>
@@ -13,11 +18,19 @@
   </url>
   
   <url>
-    <loc>https://pennydropper.netlify.com/1/01/01/</loc>
+    <loc>https://pennydropper.netlify.com/categories/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://pennydropper.netlify.com/categories/</loc>
+    <loc>https://pennydropper.netlify.com/tags/elo/</loc>
+    <lastmod>2018-03-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://pennydropper.netlify.com/tags/forecasting/</loc>
+    <lastmod>2018-03-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -29,25 +42,25 @@
   
   <url>
     <loc>https://pennydropper.netlify.com/</loc>
-    <lastmod>2018-02-03T00:00:00+00:00</lastmod>
+    <lastmod>2018-03-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://pennydropper.netlify.com/categories/personal/</loc>
-    <lastmod>2018-02-03T00:00:00+00:00</lastmod>
+    <lastmod>2018-03-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://pennydropper.netlify.com/post/</loc>
-    <lastmod>2018-02-03T00:00:00+00:00</lastmod>
+    <lastmod>2018-03-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://pennydropper.netlify.com/categories/r/</loc>
-    <lastmod>2018-02-03T00:00:00+00:00</lastmod>
+    <lastmod>2018-03-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -58,8 +71,20 @@
   </url>
   
   <url>
+    <loc>https://pennydropper.netlify.com/categories/sport/</loc>
+    <lastmod>2018-03-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://pennydropper.netlify.com/tags/</loc>
-    <lastmod>2018-02-03T00:00:00+00:00</lastmod>
+    <lastmod>2018-03-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://pennydropper.netlify.com/tags/visualisation/</loc>
+    <lastmod>2018-03-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

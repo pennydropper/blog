@@ -6,10 +6,19 @@
     <description>Recent content on Pennydropper - Lightbulb moments in Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en_us</language>
-    <lastBuildDate>Sat, 03 Feb 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 12 Mar 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://pennydropper.netlify.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AFL Tipping Mark 1</title>
+      <link>https://pennydropper.netlify.com/2018/03/12/afl-tipping-mark-1/</link>
+      <pubDate>Mon, 12 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://pennydropper.netlify.com/2018/03/12/afl-tipping-mark-1/</guid>
+      <description>Introduction Just like many other high-profile sports with an extended round-robin series, complementary competions have spun off the AFL season for amateurs followers. These tipping competions are particularly prevalent in work environments and social groups and are quite distinct from betting competions. The most frequent format, by far, for tipping competions features tippers submitting a tip for each game of the round, with the scores tallied at the end of the round.</description>
+    </item>
     
     <item>
       <title>Weighing up the data</title>
@@ -31,15 +40,6 @@
 James’ data journey progressed from Supply Chain analysis and optimisation to demand planning and sales forecasting. With a desire to use data better and smarter, James completed a Masters’ Degree in Statistics and Operations Research with Distinction in 2015.
 James is fascinated by data science, and in particular:
  Obtaining data from a wide range of sources; Data visualisation and designing engaging charts; Predictive modelling and machine learning; Finding clever and effective ways to tell the data story.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://pennydropper.netlify.com/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://pennydropper.netlify.com/1/01/01/</guid>
-      <description>AFL Tipping Mark 1       code{white-space: pre;} pre:not([class]) { background-color: white; }  if (window.hljs) { hljs.configure({languages: []}); hljs.initHighlightingOnLoad(); if (document.readyState &amp;&amp; document.readyState === &#34;complete&#34;) { window.setTimeout(function() { hljs.initHighlighting(); }, 0); } }  h1 { font-size: 34px; } h1.title { font-size: 38px; } h2 { font-size: 30px; } h3 { font-size: 24px; } h4 { font-size: 18px; } h5 { font-size: 16px; } h6 { font-size: 12px; } .</description>
     </item>
     
   </channel>
