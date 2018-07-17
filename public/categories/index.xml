@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Pennydropper - Lightbulb moments in Data Science</title>
-    <link>https://pennydropper.netlify.com/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on Pennydropper - Lightbulb moments in Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en_us</language>
     
-	<atom:link href="https://pennydropper.netlify.com/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Personal</title>
-      <link>https://pennydropper.netlify.com/categories/personal/</link>
+      <link>/categories/personal/</link>
       <pubDate>Mon, 12 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://pennydropper.netlify.com/categories/personal/</guid>
+      <guid>/categories/personal/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R</title>
-      <link>https://pennydropper.netlify.com/categories/r/</link>
+      <link>/categories/r/</link>
       <pubDate>Mon, 12 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://pennydropper.netlify.com/categories/r/</guid>
+      <guid>/categories/r/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Sport</title>
-      <link>https://pennydropper.netlify.com/categories/sport/</link>
+      <link>/categories/sport/</link>
       <pubDate>Mon, 12 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://pennydropper.netlify.com/categories/sport/</guid>
+      <guid>/categories/sport/</guid>
       <description></description>
     </item>
     

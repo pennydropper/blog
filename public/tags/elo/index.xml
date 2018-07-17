@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Elo on Pennydropper - Lightbulb moments in Data Science</title>
-    <link>https://pennydropper.netlify.com/tags/elo/</link>
+    <link>/tags/elo/</link>
     <description>Recent content in Elo on Pennydropper - Lightbulb moments in Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en_us</language>
     <lastBuildDate>Mon, 12 Mar 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://pennydropper.netlify.com/tags/elo/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/elo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>AFL Tipping Mark 1</title>
-      <link>https://pennydropper.netlify.com/2018/03/12/afl-tipping-mark-1/</link>
+      <link>/2018/03/12/afl-tipping-mark-1/</link>
       <pubDate>Mon, 12 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://pennydropper.netlify.com/2018/03/12/afl-tipping-mark-1/</guid>
+      <guid>/2018/03/12/afl-tipping-mark-1/</guid>
       <description>Introduction Just like many other high-profile sports with an extended round-robin series, complementary competions have spun off the AFL season for amateurs followers. These tipping competions are particularly prevalent in work environments and social groups and are quite distinct from betting competions. The most frequent format, by far, for tipping competions features tippers submitting a tip for each game of the round, with the scores tallied at the end of the round.</description>
     </item>
     

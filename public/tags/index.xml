@@ -2,57 +2,75 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Pennydropper - Lightbulb moments in Data Science</title>
-    <link>https://pennydropper.netlify.com/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on Pennydropper - Lightbulb moments in Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en_us</language>
-    <lastBuildDate>Mon, 12 Mar 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 17 Jul 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://pennydropper.netlify.com/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Community</title>
+      <link>/tags/community/</link>
+      <pubDate>Tue, 17 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/community/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Conference</title>
+      <link>/tags/conference/</link>
+      <pubDate>Tue, 17 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/conference/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Elo</title>
-      <link>https://pennydropper.netlify.com/tags/elo/</link>
+      <link>/tags/elo/</link>
       <pubDate>Mon, 12 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://pennydropper.netlify.com/tags/elo/</guid>
+      <guid>/tags/elo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Forecasting</title>
-      <link>https://pennydropper.netlify.com/tags/forecasting/</link>
-      <pubDate>Mon, 12 Mar 2018 00:00:00 +0000</pubDate>
+      <link>/tags/forecasting/</link>
+      <pubDate>Tue, 17 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://pennydropper.netlify.com/tags/forecasting/</guid>
+      <guid>/tags/forecasting/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Loess</title>
-      <link>https://pennydropper.netlify.com/tags/loess/</link>
+      <link>/tags/loess/</link>
       <pubDate>Sat, 03 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://pennydropper.netlify.com/tags/loess/</guid>
+      <guid>/tags/loess/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Regression</title>
-      <link>https://pennydropper.netlify.com/tags/regression/</link>
+      <link>/tags/regression/</link>
       <pubDate>Sat, 03 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://pennydropper.netlify.com/tags/regression/</guid>
+      <guid>/tags/regression/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Visualisation</title>
-      <link>https://pennydropper.netlify.com/tags/visualisation/</link>
-      <pubDate>Mon, 12 Mar 2018 00:00:00 +0000</pubDate>
+      <link>/tags/visualisation/</link>
+      <pubDate>Tue, 17 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://pennydropper.netlify.com/tags/visualisation/</guid>
+      <guid>/tags/visualisation/</guid>
       <description></description>
     </item>
     

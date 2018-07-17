@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Loess on Pennydropper - Lightbulb moments in Data Science</title>
-    <link>https://pennydropper.netlify.com/tags/loess/</link>
+    <link>/tags/loess/</link>
     <description>Recent content in Loess on Pennydropper - Lightbulb moments in Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en_us</language>
     <lastBuildDate>Sat, 03 Feb 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://pennydropper.netlify.com/tags/loess/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/loess/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Weighing up the data</title>
-      <link>https://pennydropper.netlify.com/2018/02/03/weighing-up-the-data/</link>
+      <link>/2018/02/03/weighing-up-the-data/</link>
       <pubDate>Sat, 03 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://pennydropper.netlify.com/2018/02/03/weighing-up-the-data/</guid>
+      <guid>/2018/02/03/weighing-up-the-data/</guid>
       <description>Introduction Health and wellbeing is one of my 5 core values, and I extended our new beginning in 2017 to establish new habits to live these values. The new habits included:
  Cycling to work where possible; Cutting out “gratuitous” sugar, i.e. confectionary and cakes; Reducing the evening meal to virtually a snack, thus making it my smallest meal of the day. Following the 7 minute workout 3 days per week, though I’ve embellished the exercises and extended it to a 30 minute workout thrice weekly.</description>
     </item>
