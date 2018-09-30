@@ -6,15 +6,24 @@
     <description>Recent content in Tags on Pennydropper - Lightbulb moments in Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en_us</language>
-    <lastBuildDate>Tue, 17 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 30 Sep 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Career</title>
+      <link>/tags/career/</link>
+      <pubDate>Sun, 30 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/career/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Community</title>
       <link>/tags/community/</link>
-      <pubDate>Tue, 17 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 30 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/community/</guid>
       <description></description>
@@ -23,9 +32,18 @@
     <item>
       <title>Conference</title>
       <link>/tags/conference/</link>
-      <pubDate>Tue, 17 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 30 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/conference/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Science</title>
+      <link>/tags/data-science/</link>
+      <pubDate>Sun, 30 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/data-science/</guid>
       <description></description>
     </item>
     

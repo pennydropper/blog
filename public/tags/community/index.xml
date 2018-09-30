@@ -6,10 +6,23 @@
     <description>Recent content in Community on Pennydropper - Lightbulb moments in Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en_us</language>
-    <lastBuildDate>Tue, 17 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 30 Sep 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/community/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Melbourne Data Science Conference 2018</title>
+      <link>/2018/09/30/melbourne-data-science-conference-2018/</link>
+      <pubDate>Sun, 30 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/09/30/melbourne-data-science-conference-2018/</guid>
+      <description>The 2018 Melbourne Data Science Conference (MeDaScIn Conference) featured data science career advice from 6 presenters.
+Overall, the conference presented some good common sense career advice though there was little “new” material.
+This blog post shows notes taken during the presentations.
+The conference website was down at the time of writing this blog but the link is provided anyway.
+Scott Wilson: How to Engage Executives and the Boardroom Scott Wilson, the founder of Wilson AI, presented on “How to Engage Executives and the Boardroom”.</description>
+    </item>
     
     <item>
       <title>useR! 2018 Conference Reflections</title>

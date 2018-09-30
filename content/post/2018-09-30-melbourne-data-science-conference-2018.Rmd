@@ -1,0 +1,176 @@
+---
+title: "Melbourne Data Science Conference 2018"
+author: "James Northrop"
+date: '2018-09-30'
+slug: melbourne-data-science-conference-2018
+tags:
+- conference
+- community
+- career
+- data science
+categories: []
+---
+
+The 2018 Melbourne Data Science Conference (MeDaScIn Conference) featured data science career advice from 6 presenters.  
+
+Overall, the conference presented some good common sense career advice though there was little "new" material.  
+
+This blog post shows notes taken during the presentations.
+
+The [conference website](http://www.datasciencemelbourne.com/medascin2018/) was down at the time of writing this blog but the link is provided anyway.  
+
+### Scott Wilson: How to Engage Executives and the Boardroom
+
+Scott Wilson, the founder of [Wilson AI](http://www.wilsonai.com/), presented on "How to Engage Executives and the Boardroom".
+
+My impression of [Scott](https://www.linkedin.com/in/wilsondscott/) was that he is about my age (51), professionally presented and an engaging presenter.
+
+Scott's key points were:  
+
+* The average age of directors of ASX100 companies is 61.9 years.  
+
+* Directors natural state is to assess risk and outcomes.  
+  + Pressure to maintain the status quo.  
+  + Surprisingly have little influence.  
+  
+* When presenting, always focus on the outcome (rather than the method to arrive at the recommendation).  
+
+* The CEO (and senior executives) are the most important stakeholders.  
+  + They control the money.  
+  + They manage and allocate resources.
+  
+Always follow the money:  
+* Revenue, spend, cost, impact.  
+
+Departments with a reputation for dark arts, "black box", "black magic" or with no outcomes  
+  =  
+candidates for cost cutting or outsourcing.
+
+**How to be a hero**  
+1. Engage the CEO and the C-suite (and then the board).  
+2. Align to their KPIs and company strategy.  
+3. Follow the money and focus on outcomes.  
+4. Keep it (the data science) simple.  
+5. Execute with speed, again and again.
+
+Share the outcomes loud and proud.
+
+
+### Felicity Splatt from PwC  
+
+I missed the title of Felicity's presentation but it was about overcoming "Imposter Syndrome".  
+
+[Felicity](https://www.linkedin.com/in/felicity-splatt/) is a young (to me) Senior Manager at PwC.  
+
+I was amused by the topic of her presentation (Imposter Syndrome) given that Felicity has a PhD from Innsbruck University.  
+
+**Felicity's key points: ** 
+
+* Presented the [CRISP-DM methodology](https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining).  
+
+* Understand the lineage of every component of the data.  
+* Discussions with data domain experts are often hugely rewarded with gaining key insights.  
+
+Advice for data scientists to avoid imposter syndrome.  
+1. Accept that no one knows everything.  
+2. Understand your likes and dislikes with data science.  
+3. Understand the expectations in the role.  
+4. Remain curious and informed by attending Meetups and conferences.  
+5. Build a diverse team / support network.  
+6. Invest in continuous learning.  
+
+
+### Eugene Dubossarsky: What data scientists should ask a propsective employer  
+
+[Dr Eugene Dubossarsky](https://www.linkedin.com/in/eugene-dubossarsky-09208a1/) is a director and principal trainer presciient.com.
+
+* There is a worringly high level of churn among data scientists, who either move from employer to employer, become freelance consultants or even drop out of data science all together.  
+
+* Data scientists should learn tips for avoiding unsatisfactory jobs.
+
+Employer is offering a large salary, but...  
+* The provided computer is low power (under-speced).  
+* The IT department does not support new data science initiatives.  
+* Management has vague, "strange" KPIs or even no KPIs.  
+
+Avoid employment where the data science reports into IT.  
+* Managed like IT, as though it is producing "apps".  
+
+Ideally, the data science function sits in the Intelligence function.  
+* Attends to new opportunities.  
+
+**What does a good job look like?**  
+* Tangible objectives.  
+* Shows that the manager understands to role.  
+  + Can help you to progress?
+  
+* Neccessary resources, e.g. adequate hardware.  
+
+* How will management support to get the required data.  
+
+* How will management help sell the results up the data chain?  
+
+* Where does analytics sit relative to the providers of:  
+  + Data.  
+  + Systems.  
+  + Assets.  
+  
+Parting words:  
+* A data literacy revolution is coming!  
+
+###Sally Grove: Career advice you didn't learn at school  
+
+[Sally Grove](https://www.linkedin.com/in/sally-grove-6007a221/).  
+
+Back yourself.  
+
+It's OK to ask for help.  
+
+Focus on your strengths.  
+* Only spend enough effort on weaknesses to "plug the holes until you float".  
+
+Don't get stuck doing things you're good at but don't enjoy:  
+* Train someone else to replace you.  
+* Automate where possible.  
+* Have an open conversation with your manager.  
+
+Kill your perfectionism:  
+* Keep it simple.  
+
+Take ownership.  
+
+Find out the Why:  
+* Ask follow-up questions.
+
+No one cares how you got there:  
+* Tell them the insights.  
+
+Don't hide in the corner:  
+* Have conversations, not emails.  
+* Say "hi!".  
+
+Be aware of office politics:  
+* Build a support network.  
+
+Get comfortable being uncomfortable:  
+* Process can be painful but completing brings a great sense of achievement.  
+
+Ask yourself "What's the worst thing that can happen?".
+
+It's OK to take a break / sabbatical.  
+
+
+###Megan from the Department of Premier and Cabinet.  
+* Helped to source the data for the datathon.  
+
+* Manages the [Victorian open data program](https://www.data.vic.gov.au/).
+
+* Most sourced open data is transport data and spatial data.  
+
+**Common issues with open data**  
+1. Quality of data when the data is by-product of the primary process.  
+2. Fear of how the data will be interpreted when out of context.  
+3. Privacy issues.  
+4. Limited examples of adding value; i.e. "what's the point?".  
+
+* Government is investing in API gateways.  
