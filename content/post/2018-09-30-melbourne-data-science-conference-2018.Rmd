@@ -10,14 +10,26 @@ tags:
 - data science
 categories: []
 ---
+---
+title: Melbourne Data Science Conference 2018
+author: James Northrop
+date: '2018-10-01'
+slug: melbourne-data-science-conference-2018
+categories: []
+tags:
+  - conference
+  - community
+  - career
+  - data science
+---
 
-The 2018 Melbourne Data Science Conference (MeDaScIn Conference) featured data science career advice from 6 presenters.  
+
+The 2018 Melbourne Data Science Conference [(MeDaScIn Conference)](http://www.datasciencemelbourne.com/medascin2018/) featured data science career advice from 6 presenters.  The conference, held on Wednesday 26 September 2018, was staged at the NAB Arena in Docklands.  
 
 Overall, the conference presented some good common sense career advice though there was little "new" material.  
 
 This blog post shows notes taken during the presentations.
 
-The [conference website](http://www.datasciencemelbourne.com/medascin2018/) was down at the time of writing this blog but the link is provided anyway.  
 
 ### Scott Wilson: How to Engage Executives and the Boardroom
 
@@ -25,25 +37,24 @@ Scott Wilson, the founder of [Wilson AI](http://www.wilsonai.com/), presented on
 
 My impression of [Scott](https://www.linkedin.com/in/wilsondscott/) was that he is about my age (51), professionally presented and an engaging presenter.
 
-Scott's key points were:  
+Scott's key points were:
 
-* The average age of directors of ASX100 companies is 61.9 years.  
+1. The average age of directors of ASX100 companies is 61.9 years.  
 
-* Directors natural state is to assess risk and outcomes.  
-  + Pressure to maintain the status quo.  
-  + Surprisingly have little influence.  
-  
-* When presenting, always focus on the outcome (rather than the method to arrive at the recommendation).  
+2. Directors natural state is to assess risk and outcomes.  There is pressure to maintain the status quo and they have surprisingly have little influence.  
 
-* The CEO (and senior executives) are the most important stakeholders.  
+3. When presenting to directors, always focus on the outcome (rather than the method to arrive at the recommendation).  
+
+4. The CEO (and senior executives) are the most important stakeholders.  
   + They control the money.  
   + They manage and allocate resources.
   
-Always follow the money:  
+Always follow the money:
+
 * Revenue, spend, cost, impact.  
 
 Departments with a reputation for dark arts, "black box", "black magic" or with no outcomes  
-  =  
+EQUALS    
 candidates for cost cutting or outsourcing.
 
 **How to be a hero**  
@@ -66,9 +77,9 @@ I was amused by the topic of her presentation (Imposter Syndrome) given that Fel
 
 **Felicity's key points: ** 
 
-* Presented the [CRISP-DM methodology](https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining).  
+1. Presented the [CRISP-DM methodology](https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining).  
 
-* Understand the lineage of every component of the data.  
+2. Understand the lineage of every component of the data.  
 * Discussions with data domain experts are often hugely rewarded with gaining key insights.  
 
 Advice for data scientists to avoid imposter syndrome.  
@@ -84,38 +95,36 @@ Advice for data scientists to avoid imposter syndrome.
 
 [Dr Eugene Dubossarsky](https://www.linkedin.com/in/eugene-dubossarsky-09208a1/) is a director and principal trainer presciient.com.
 
-* There is a worringly high level of churn among data scientists, who either move from employer to employer, become freelance consultants or even drop out of data science all together.  
+1. There is a worringly high level of churn among data scientists, who either move from employer to employer, become freelance consultants or even drop out of data science all together.  
 
-* Data scientists should learn tips for avoiding unsatisfactory jobs.
+2. Data scientists should learn tips for avoiding unsatisfactory jobs.
 
-Employer is offering a large salary, but...  
-* The provided computer is low power (under-speced).  
-* The IT department does not support new data science initiatives.  
-* Management has vague, "strange" KPIs or even no KPIs.  
+For example, the employer is offering a large salary, but...  
+a. The provided computer is low power (under-speced).  
+b. The IT department does not support new data science initiatives.  
+c. Management has vague, "strange" KPIs or even no KPIs.  
 
 Avoid employment where the data science reports into IT.  
+
 * Managed like IT, as though it is producing "apps".  
 
 Ideally, the data science function sits in the Intelligence function.  
+
 * Attends to new opportunities.  
 
 **What does a good job look like?**  
-* Tangible objectives.  
-* Shows that the manager understands to role.  
-  + Can help you to progress?
-  
-* Neccessary resources, e.g. adequate hardware.  
 
-* How will management support to get the required data.  
+1. Tangible objectives.
+2. Shows that the manager understands to role, i.e. manager can help you to progress?
+3. Neccessary resources, e.g. adequate hardware.  
 
-* How will management help sell the results up the data chain?  
-
-* Where does analytics sit relative to the providers of:  
-  + Data.  
-  + Systems.  
-  + Assets.  
+**Questions to ask before accepting an offer**  
+1. How will management support to get the required data.  
+2. How will management help sell the results up the data chain?  
+3. Where does analytics sit relative to the providers of: Data; Systems; Assets.  
   
 Parting words:  
+
 * A data literacy revolution is coming!  
 
 ###Sally Grove: Career advice you didn't learn at school  
@@ -160,12 +169,11 @@ Ask yourself "What's the worst thing that can happen?".
 It's OK to take a break / sabbatical.  
 
 
-###Megan from the Department of Premier and Cabinet.  
-* Helped to source the data for the datathon.  
+###Megan Vassarotti: Department of Premier and Cabinet.  
 
-* Manages the [Victorian open data program](https://www.data.vic.gov.au/).
+Manages the [Victorian open data program](https://www.data.vic.gov.au/).
 
-* Most sourced open data is transport data and spatial data.  
+Most sourced open data is transport data and spatial data.  
 
 **Common issues with open data**  
 1. Quality of data when the data is by-product of the primary process.  
@@ -174,3 +182,12 @@ It's OK to take a break / sabbatical.
 4. Limited examples of adding value; i.e. "what's the point?".  
 
 * Government is investing in API gateways.  
+
+###Final Thoughts  
+The conference, in hindsight, was more pitched at students and recent graduates, and contrasted sharply from the 2017 conference, which was held in conjunction with Monash University.  The 2017 conference featured considerably more speakers as well as breakout sessions.  
+
+I noticed as I completed this blog that the [conference](https://www.meetup.com/Data-Science-Melbourne/events/248209655/) transitioned into [Hackers Helping Melbourne Symposium](http://www.datasciencemelbourne.com/medascin2018/) with the themes:  
+
+1. Helping those transitioning into data science with advisory talks, and the opportunity to put themselves in the shop window by presenting their work
+2. Pitch day for the 2018 Melbourne Datathon (the World’s Biggest*). Over 190 teams have had 2 months to analyse the MYKI data and will present their findings.  
+
