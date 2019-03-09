@@ -41,9 +41,18 @@
     <item>
       <title>Data Science</title>
       <link>/tags/data-science/</link>
-      <pubDate>Sun, 30 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/data-science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Development</title>
+      <link>/tags/development/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/development/</guid>
       <description></description>
     </item>
     
@@ -75,6 +84,15 @@
     </item>
     
     <item>
+      <title>Management</title>
+      <link>/tags/management/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/management/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Regression</title>
       <link>/tags/regression/</link>
       <pubDate>Sat, 03 Feb 2018 00:00:00 +0000</pubDate>
@@ -86,7 +104,7 @@
     <item>
       <title>Visualisation</title>
       <link>/tags/visualisation/</link>
-      <pubDate>Tue, 17 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/visualisation/</guid>
       <description></description>

@@ -57,9 +57,6 @@ tags:
 </li>
 <li>The number of days since each team’s previous match, which is usually between 6 and 8 days.</li>
 </ul>
-<p><strong>Scoring Accuracy</strong><br />
-Losing teams tend to see only about half of their scoring shots converted to goals, whereas winning teams tend to see 55% or more of their scoring shots converted as goals.</p>
-<p><img src="/post/2018-03-12-afl-tipping-mark-1_files/figure-html/Scoring%20accuracy%20plot-1.png" width="672" /></p>
 </div>
 <div id="the-tipping-model" class="section level2">
 <h2>The Tipping Model</h2>
@@ -70,35 +67,32 @@ Losing teams tend to see only about half of their scoring shots converted to goa
 <p>As it happened, Port Adelaide won the match by 28 points, so the model updated the ratings of Sydney and Port Adelaide to 1648 and 1549, an adjustment of 19 points up or down for both teams. If Port Adelaide had won by even more, the adjustment would be even more.</p>
 <p>The tipping model is a variation on the commonly used <a href="https://en.wikipedia.org/wiki/Elo_rating_system">Elo rating system</a>, variations of which are used by FIFA for their world rankings and the popular Nate Silver’s <a href="https://fivethirtyeight.com/features/how-we-calculate-nba-elo-ratings/">FiveThirtyEight</a>. My model was adapted from these sites and in particular from <a href="https://thearcfooty.com/2016/12/29/introducing-the-arcs-ratings-system/">The Arc Footy, graphed</a> site. As The Arc suggests, Elo is a solid and relatively simple general purpose model that produces good estimates of margins and likelihood of winning, though it is less accurate than more advanced algorithms.</p>
 <p><strong>Ratings Ladder at the end of 2017 Home and Away Season</strong></p>
-<p>This chart shows the ratings at the end of the 2017 Home and Away Season, i.e. before the finals. AFL fans may be surprised to see that Richmond is only fourth on this ladder, but it is worth remembering that Richmond were only 3rd on the ladder with a modest percentage of 118% (flattered by 2 convincing wins in the last 2 rounds). In summary, Richmond won almost all of the games it was expected to but had fewer strong wins. It may also surprise to see Sydney second on the rankings when they finished 6th on the AFL ladder. However, Sydney started the sesaon quite slowly and finished very strongly with a percentage of 127%.</p>
+<p>This chart shows the ratings at the end of the 2017 Home and Away Season, i.e. before the finals. AFL fans may be surprised to see that Richmond is only fourth on this ladder, but it is worth remembering that Richmond were only 3rd on the official AFL ladder with a modest percentage of 118% (flattered by 2 convincing wins in the last 2 rounds). In summary, Richmond won almost all of the games it was expected to but had fewer strong wins. It may also surprise to see Sydney second on the rankings when they finished 6th on the AFL ladder. However, Sydney started the sesaon quite slowly and finished very strongly with a percentage of 127%.</p>
 <p><img src="/post/2018-03-12-afl-tipping-mark-1_files/figure-html/ratings.ladder-1.png" width="672" /></p>
 <p><img src="/post/2018-03-12-afl-tipping-mark-1_files/figure-html/unnamed-chunk-1-1.png" width="1248" /></p>
-<p>For an interactive view of all teams, view my <a href="https://pennydropper.shinyapps.io/AFLRatings/">Shiny Page</a>.</p>
+<p>My <a href="https://pennydropper.shinyapps.io/AFLRatings/">Shiny Page</a> has an interactive view of the ratings for each team in each season since 2013.</p>
 </div>
 <div id="how-good-is-the-model" class="section level2">
 <h2>How Good is the Model?</h2>
 <p>Surprisingly good, is the short answer, given that I am yet to optimise the parameters or experiment with more sophisticated algorithms.</p>
-<div id="comparing-with-betting-agencies" class="section level3">
-<h3>Comparing with Betting Agencies</h3>
-<p>For this analysis, I made a number of comparisons with the odds and line margins offered by betting agencies using data downloaded from <a href="http://www.aussportsbetting.com/data/historical-afl-results-and-odds-data/">Australia Sports Betting</a>.</p>
+<p><strong>Comparing with Betting Agencies</strong> For this analysis, I made a number of comparisons with the odds and line margins offered by betting agencies using data downloaded from <a href="http://www.aussportsbetting.com/data/historical-afl-results-and-odds-data/">Australia Sports Betting</a>.</p>
 <p><strong>Results</strong><br />
 Out of the 4 seasons from 2014 to 2017, the model exceeded the betting agencies in 2014 and almost tied in 2017.</p>
 <p><img src="/post/2018-03-12-afl-tipping-mark-1_files/figure-html/multi-season.res.tips-1.png" width="672" /></p>
 <p><strong>Predicting the margin</strong><br />
-In terms of predicting the game margins, the model and betting agencies are remarkably close. In most season’s, the betting agencies’ margin estimates are slightly better though the model peformed better in the 2017 season. <img src="/post/2018-03-12-afl-tipping-mark-1_files/figure-html/multi-season.res.marg-1.png" width="672" /></p>
+In terms of predicting the game margins, the model and betting agencies are remarkably close. In most season’s, the betting agencies’ margin estimates are slightly better though the model peformed better in the 2017 season. <img src="/post/2018-03-12-afl-tipping-mark-1_files/figure-html/multi-season.res.marg-1.png" width="672" /> (Refer to the end of this blog for how to read box plots.)</p>
 <p><strong>Game by Game Review</strong></p>
 <p>This comprehensive plot shows all 198 games in the 2017 season.</p>
 <p>Each game is represented as a box and is colour coded to show if the model predicted correctly, whereas the box’s margin indicates if the betting agencies tipped the game correctly.</p>
 <p>Inside each box are 3 bars, representing the final margin in favour of the team, the model’s predicted margin and the betting agencies’ predicted margin.</p>
 <p>This chart shows that there are very few sequences of incorrect tips by the model. Sydney was incorrectly tipped for rounds 1 to 6 which was due to their surprisingly slow start given their momentum at the end of the 2016 season. The model also incorrectly tipped the Collingwood games from rounds 2 to 7, which was matched by the betting agencie’s incorrect tips.</p>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD <img src="/post/2018-03-12-afl-tipping-mark-1_files/figure-html/unnamed-chunk-2-1.png" width="1248" /></p>
-</div>
+<p><img src="/post/2018-03-12-afl-tipping-mark-1_files/figure-html/unnamed-chunk-2-1.png" width="1248" /></p>
 <div id="performance-of-estimated-likelihood" class="section level3">
 <h3>Performance of Estimated Likelihood</h3>
 <p>These plots show that the distribution of estimated likelihoods (probabilities) is approximately bell shaped, which is to be expected. Fortunately, the games with a higher estimated likelihood seem to associate with more wins, which is to be expected.</p>
 <p><img src="/post/2018-03-12-afl-tipping-mark-1_files/figure-html/hist.probs-1.png" width="672" /></p>
 <p>This plot shows the prevalence of home teams winning, based on the estimated likelihood of the home team winning. For instance, there are 10 games out of 198 in 2017 where the estimated likelihood of the home team winning was around 0.20, meaning that we would expect the home team to win 2 of those 10 games (20%). I actual fact, 6 of those 10 home teams with 0.2 likelihood of winning actually won (60%).</p>
-<p>The diagonal line represents where we expect the bars to end.</p>
+<p>The diagonal line represents where we expect the points to fall.</p>
 <p><img src="/post/2018-03-12-afl-tipping-mark-1_files/figure-html/plot%20probs%20vs%20act-1.png" width="672" /> There are a few interesting features in this chart:</p>
 <ul>
 <li>There are no likelihoods less than 0.075 and none greater than 0.875, suggesting that the model may struggle with outliers.</li>
@@ -108,12 +102,12 @@ In terms of predicting the game margins, the model and betting agencies are rema
 </li>
 <li>This suggests that there is a bias to underestimating the home team’s likelihood, which is plausible as the model is yet to factor in home-ground advantage.</li>
 </ul></li>
-<li>That said, the 3 likelihoods which are clearly below the 50-50 line are 0.35 to 0.45.
+<li>That said, the 3 likelihood ranges clearly below the 50-50 line are 0.35 to 0.45.
 <ul>
 <li>If the model “corrected” for these likelihoods, then these tips would swing from correctly forecasting a loss to incorrectly forecasting a win.</li>
 </ul></li>
 </ul>
-<p><strong>Probability Performance for 4 Seasons</strong></p>
+<p><strong>Likelihood Performance for 4 Seasons</strong></p>
 <p>A review of the likelihoods over the 4 seasons suggests that 2017 with it’s tendency to understate the likelihood may be an anomoly. 2016 is similar though 2015 appears to overestimate likelihoods and 2014 appears more like what we expect. <img src="/post/2018-03-12-afl-tipping-mark-1_files/figure-html/prob.perf.4.seasons-1.png" width="672" /></p>
 <div id="final-word-on-the-model" class="section level4">
 <h4>Final word on the model</h4>
@@ -145,4 +139,76 @@ There are features of some of these charts that I’m using for my first time. S
 <p>One irritation with the AFL competition is the difficulty in sourcing useful data to feed the amatear analyst. As an example, I had to resort to scraping match results from an unoffical website, <a href="https://afltables.com/afl/afl_index.html">AFL Tables</a>, even though many high profile professional sports make the data freely available to download.</p>
 <p>The league, most clubs and the media subscribe to <a href="https://www.championdata.com/index.php/sport/afl.html">Champion Data</a> and some of the data is available in untidy format in some newspapers, though the data is difficult to scrape from websites and, in any case, is subject to copyright.</p>
 <p>One day, I would love to analyse data on inside-50s, tackles, effective disposals, contested ball, disposal efficiency and even scoring shot locations.</p>
+</div>
+<div id="footnotes" class="section level2">
+<h2>Footnotes</h2>
+<p>Code for this analysis is located <a href="https://github.com/pennydropper/AFLV1">here</a> on GitHub.</p>
+<div id="scoring-accuracy" class="section level3">
+<h3>Scoring Accuracy</h3>
+<p>Losing teams tend to see only about half of their scoring shots converted to goals, whereas winning teams tend to see 55% or more of their scoring shots converted as goals.</p>
+<p><img src="/post/2018-03-12-afl-tipping-mark-1_files/figure-html/Scoring%20accuracy%20plot-1.png" width="672" /></p>
+<p>There definitely is an association between accuracy and winning for Melbourne, which is expected.</p>
+<p>How is the distribution of relative accuracy?</p>
+<pre class="r"><code>q4.acc.df() %&gt;%
+  group_by(tm, tm.res, seas) %&gt;%
+  mutate(games = n()) %&gt;%
+  ungroup() %&gt;%
+  filter(tm.res != &quot;draw&quot;) %&gt;% # ,
+         # tm == &quot;Melbourne&quot;) %&gt;%
+  ggplot(aes(x = tm.res, y = tm.rel.acc)) +
+  geom_hline(aes(yintercept = 0), colour = &quot;grey&quot;) +
+  geom_boxplot() +
+  facet_grid(~ seas) +
+  # geom_text(aes(label = games, y = -0.6)) +
+  scale_y_continuous(labels = scales::percent) +
+  labs(title = &quot;Relative scoring accuracy for all teams&quot;,
+       subtitle = &quot;Percentage of scoring shots that are goals, relative to opponent&quot;,
+       y = &quot;Teams scoring accuracy rel to opponent&quot;,
+       x = &quot;&quot;)</code></pre>
+<p><img src="/post/2018-03-12-afl-tipping-mark-1_files/figure-html/Relative%20scoring%20accuracy-1.png" width="672" /> Not surprisingly, there is a clear association between the relative scoring accuracy and whether a team wins the match.</p>
+<p>Looking at a scatterplot of the share of the total scoring shots versus the score of the total score, there is a small number of games where teams had a smaller number of scoring shots but still won the game.</p>
+<pre class="r"><code>q4.acc.df() %&gt;%
+  filter(seas == 2017) %&gt;%
+  ggplot((aes(x = tm.Q4.ratio.sh, y = tm.Q4.ratio.sc))) +
+  geom_point(aes(colour = tm.res)) +
+  # geom_abline(aes(intercept = 0, slope = 1), linetype = 2) +
+  geom_vline(aes(xintercept = 0.5), linetype = 2) +
+  geom_hline(aes(yintercept = 0.5), linetype = 2) +
+  labs(title = &quot;Ratio of scoring shots vs ratio of final scores in 2017&quot;,
+       x = &quot;share of total scoring shots for the game&quot;,
+       y = &quot;share of total scores for the game&quot;,
+       colour = &quot;result&quot;) +
+  geom_text(aes(label = &quot;more shots but lost&quot;, x = 0.9,
+                y = 0.45), data = tibble(x = 1), vjust = &quot;bottom&quot;, hjust = &quot;right&quot;) +
+  geom_text(aes(label = &quot;more shots and won&quot;, x = 0.9,
+                y = 0.55), data = tibble(x = 1), vjust = &quot;top&quot;, hjust = &quot;right&quot;) +
+  geom_text(aes(label = &quot;fewer shots and lost&quot;, x = 0.1,
+                y = 0.45), data = tibble(x = 1), vjust = &quot;bottom&quot;, hjust = &quot;left&quot;) +
+  geom_text(aes(label = &quot;fewer shots but won&quot;, x = 0.1,
+                y = 0.55), data = tibble(x = 1), vjust = &quot;top&quot;, hjust = &quot;left&quot;)</code></pre>
+<p><img src="/post/2018-03-12-afl-tipping-mark-1_files/figure-html/scoring%20shots%20vs%20total%20scores-1.png" width="672" /></p>
+<p>About 1 game in 9 sees a team win despite fewer scoring shots.</p>
+<pre class="r"><code>q4.acc.df() %&gt;%
+  filter(tm.Q4.ratio.sh &lt; 0.5, tm.Q4.ratio.sc &gt;= 0.5) %&gt;%
+  ggplot((aes(x = seas))) +
+  geom_bar() +
+  coord_flip() +
+  scale_y_continuous(&quot;number of games&quot;, position = &quot;right&quot;,
+                     sec.axis = sec_axis(trans = (~. / 198), labels = scales::percent,
+                                         name = &quot;Share of all games&quot;)) +
+  labs(title = &quot;Games won by the team with fewer scoring shots&quot;,
+       subtitle = &quot;About 1 game in 9 sees a team win despite fewer scoring shots&quot;,
+       x = &quot;season&quot;)</code></pre>
+<p><img src="/post/2018-03-12-afl-tipping-mark-1_files/figure-html/games%20won%20with%20fewer%20scoring%20shots-1.png" width="672" /></p>
+</div>
+<div id="explanation-of-box-plots" class="section level3">
+<h3>Explanation of Box Plots</h3>
+<p>Box plots are extremely frequently used by data scientists to display how data is distributed.</p>
+<p>As an example, the chart here shows the distribution of scores for the 2017 competition found randomly on the internet. The winner of the competition scoreed 135 and the largest group scored around 125. There was a group clustered around 85, which possibly represents entrants who lost interest early in the season and failed to submit tips.</p>
+<p>The marks on the x-axis show the scores recorded, and the red marks represent the first 25% of entrants, the median score and the 75-percentile of entrants.</p>
+<p><img src="/post/2018-03-12-afl-tipping-mark-1_files/figure-html/tipping%20scores%20bar%20chart-1.png" width="672" /></p>
+<p>This chart shows the distribution represented as a box plot. The lines on either side of the box represent the top and bottom 25% of scores, and the vertical line in the middle represents the median. Sometimes, the average of the scores may be shown.</p>
+<p>Box plots allow a simpler visualisation of the distribution and take less space than a bar chart or histogram. Obviously, some insights are not shown, such as the polarisation of scores in this case, but a good data scientist will show more details in a case-by-case basis.</p>
+<p><img src="/post/2018-03-12-afl-tipping-mark-1_files/figure-html/tipping%20scores%20box%20plot-1.png" width="672" /></p>
+</div>
 </div>

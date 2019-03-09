@@ -115,30 +115,6 @@ Other statistics captured but only partly used in this analysis with potential f
 * The team playing at home and the distance their opponent had to travel.  
 * The number of days since each team's previous match, which is usually between 6 and 8 days.
 
-**Scoring Accuracy**  
-Losing teams tend to see only about half of their scoring shots converted to goals, whereas winning teams tend to see 55% or more of their scoring shots converted as goals.
-
-```{r Scoring accuracy plot, echo=FALSE}
-
-q4.acc.df() %>%
-  group_by(seas) %>%
-  mutate(acc.avg = median(tm.Q4.acc, na.rm = TRUE)) %>%
-  ungroup() %>%
-  filter(tm.res != "draw") %>%
-  ggplot(aes(x = tm.res, y = tm.Q4.acc)) +
-  geom_hline(aes(yintercept = acc.avg), colour = "#737373") +
-  geom_hline(aes(yintercept = 0.5), colour = "black", linetype = 2) +
-  geom_boxplot() +
-  facet_grid(~ seas) +
-  # geom_text(aes(label = games, y = 0.1)) +
-  scale_y_continuous(labels = scales::percent, breaks = seq(0.1, 0.9, 0.1)) +
-  labs(title = "Scoring accuracy for all teams",
-       subtitle = "Percentage of scoring shots that are goals. Grey line represents season\'s median",
-       y = "Teams scoring accuracy",
-       x = "")
-
-```
-
 ## The Tipping Model
 The major goal of this analysis was a model to tip AFL results and to compare it against various models.
 
@@ -154,7 +130,7 @@ The tipping model is a variation on the commonly used [Elo rating system](https:
 
 **Ratings Ladder at the end of 2017 Home and Away Season**  
 
-This chart shows the ratings at the end of the 2017 Home and Away Season, i.e. before the finals.  AFL fans may be surprised to see that Richmond is only fourth on this ladder, but it is worth remembering that Richmond were only 3rd on the ladder with a modest percentage of 118% (flattered by 2 convincing wins in the last 2 rounds).  In summary, Richmond won almost all of the games it was expected to but had fewer strong wins.  It may also surprise to see Sydney second on the rankings when they finished 6th on the AFL ladder.  However, Sydney started the sesaon quite slowly and finished very strongly with a percentage of 127%.
+This chart shows the ratings at the end of the 2017 Home and Away Season, i.e. before the finals.  AFL fans may be surprised to see that Richmond is only fourth on this ladder, but it is worth remembering that Richmond were only 3rd on the official AFL ladder with a modest percentage of 118% (flattered by 2 convincing wins in the last 2 rounds).  In summary, Richmond won almost all of the games it was expected to but had fewer strong wins.  It may also surprise to see Sydney second on the rankings when they finished 6th on the AFL ladder.  However, Sydney started the sesaon quite slowly and finished very strongly with a percentage of 127%.
 
 ```{r ratings.ladder, echo=FALSE}
 full.ratings %>%
@@ -174,7 +150,7 @@ full.ratings %>%
 
 
 
-```{r fig.width=13, fig.height=6, echo=FALSE}
+```{r fig.width=13, fig.height=8, echo=FALSE}
 
 rtngs.plot.data <- calc.margin(afl.results) %>%
   select(seas:home, !!as.name(optim.by)) %>%
@@ -223,12 +199,12 @@ rtngs.plot.data %>%
 
 ```
 
-For an interactive view of all teams, view my [Shiny Page](https://pennydropper.shinyapps.io/AFLRatings/).
+My [Shiny Page](https://pennydropper.shinyapps.io/AFLRatings/) has an interactive view of the ratings for each team in each season since 2013.
 
 ## How Good is the Model?
 Surprisingly good, is the short answer, given that I am yet to optimise the parameters or experiment with more sophisticated algorithms.
 
-### Comparing with Betting Agencies
+**Comparing with Betting Agencies**
 For this analysis, I made a number of comparisons with the odds and line margins offered by betting agencies using data downloaded from [Australia Sports Betting](http://www.aussportsbetting.com/data/historical-afl-results-and-odds-data/).
 
 
@@ -300,6 +276,7 @@ act.w.pred.bet %>%
        x = "Rounds")
 
 ```
+(Refer to the end of this blog for how to read box plots.)
 
 **Game by Game Review**
 
@@ -311,7 +288,7 @@ Inside each box are 3 bars, representing the final margin in favour of the team,
 
 This chart shows that there are very few sequences of incorrect tips by the model.  Sydney was incorrectly tipped for rounds 1 to 6 which was due to their surprisingly slow start given their momentum at the end of the 2016 season.  The model also incorrectly tipped the Collingwood games from rounds 2 to 7, which was matched by the betting agencie's incorrect tips.
 
-<<<<<<< HEAD
+
 ```{r fig.width=13, echo=FALSE, fig.height=9}
 
 rtngs.plot.data <- calc.margin(afl.results) %>%
@@ -399,9 +376,9 @@ act.with.pred(afl.results, optim.by) %>%
   geom_bar(aes(fill = act.hm), colour = "#737373") +
   coord_cartesian(xlim = c(0, 1)) +
   scale_x_continuous(breaks = seq(0, 1, .1)) +
-  scale_fill_manual("", values = c("loss" = "#f5f5f5", "draw" = "#c7eae5", "win" = "#01665e")) +
-  labs(title = "Distribution of model's probabilities",
-       x = "Estimated probability of home team win",
+  scale_fill_manual("", values = c("lose" = "#f5f5f5", "draw" = "#c7eae5", "win" = "#01665e")) +
+  labs(title = "Distribution of model's likelihoods",
+       x = "Estimated likelihood of home team win",
        y = "Frequency through the season") +
   facet_wrap( ~ seas)
 
@@ -409,7 +386,7 @@ act.with.pred(afl.results, optim.by) %>%
 
 This plot shows the prevalence of home teams winning, based on the estimated likelihood of the home team winning.  For instance, there are 10 games out of 198 in 2017 where the estimated likelihood of the home team winning was around 0.20, meaning that we would expect the home team to win 2 of those 10 games (20%).  I actual fact, 6 of those 10 home teams with 0.2 likelihood of winning actually won (60%).
 
-The diagonal line represents where we expect the bars to end.
+The diagonal line represents where we expect the points to fall.
 
 ```{r plot probs vs act, echo=FALSE}
 pred.bins <- act.with.pred(afl.results, optim.by) %>%
@@ -429,6 +406,7 @@ pred.bins %>%
   geom_vline(aes(xintercept = 0.5), colour = "grey", linetype = 2) +
   geom_segment(aes(x = 0, xend = 1, y = 0, yend = 1), colour = "grey") +
   geom_point(aes(size = games), alpha = 0.5) +
+  scale_size_continuous(range = c(1, 13)) +
   geom_point(size = 0.6) +
   coord_cartesian(xlim = c(0, 1)) +
   scale_x_continuous(breaks = seq(0, 1, 0.1), expand = c(0, 0.0)) +
@@ -445,11 +423,11 @@ There are a few interesting features in this chart:
 * Out of the 16 (rounded) likelihoods between 0 and 1, 4 are clearly below the line, 1 (0.70) is on the line and 11 of the 16 are above the line.  
     + The probability of getting 11 or more above expectations, assuming a 50% chance, is `r scales::percent(pbinom(10, 16, 0.5, FALSE))`.  
     + This suggests that there is a bias to underestimating the home team's likelihood, which is plausible as the model is yet to factor in home-ground advantage.
-* That said, the 3 likelihoods which are clearly below the 50-50 line are 0.35 to 0.45.  
+* That said, the 3 likelihood ranges clearly below the 50-50 line are 0.35 to 0.45.  
     + If the model "corrected" for these likelihoods, then these tips would swing from correctly forecasting a loss to incorrectly forecasting a win.
     
     
-**Probability Performance for 4 Seasons**  
+**Likelihood Performance for 4 Seasons**  
 
 A review of the likelihoods over the 4 seasons suggests that 2017 with it's tendency to understate the likelihood may be an anomoly.  2016 is similar though 2015 appears to overestimate likelihoods and 2014 appears more like what we expect.
 ```{r prob.perf.4.seasons, echo=FALSE}
@@ -502,3 +480,149 @@ One irritation with the AFL competition is the difficulty in sourcing useful dat
 The league, most clubs and the media subscribe to [Champion Data](https://www.championdata.com/index.php/sport/afl.html) and some of the data is available in untidy format in some newspapers, though the data is difficult to scrape from websites and, in any case, is subject to copyright.
 
 One day, I would love to analyse data on inside-50s, tackles, effective disposals, contested ball, disposal efficiency and even scoring shot locations.
+
+
+## Footnotes
+
+Code for this analysis is located [here](https://github.com/pennydropper/AFLV1) on GitHub.
+
+###Scoring Accuracy
+Losing teams tend to see only about half of their scoring shots converted to goals, whereas winning teams tend to see 55% or more of their scoring shots converted as goals.
+
+```{r Scoring accuracy plot, echo=FALSE}
+
+q4.acc.df() %>%
+  group_by(seas) %>%
+  mutate(acc.avg = median(tm.Q4.acc, na.rm = TRUE)) %>%
+  ungroup() %>%
+  filter(tm.res != "draw") %>%
+  ggplot(aes(x = tm.res, y = tm.Q4.acc)) +
+  geom_hline(aes(yintercept = acc.avg), colour = "#737373") +
+  geom_hline(aes(yintercept = 0.5), colour = "black", linetype = 2) +
+  geom_boxplot() +
+  facet_grid(~ seas) +
+  # geom_text(aes(label = games, y = 0.1)) +
+  scale_y_continuous(labels = scales::percent, breaks = seq(0.1, 0.9, 0.1)) +
+  labs(title = "Scoring accuracy for all teams",
+       subtitle = "Percentage of scoring shots that are goals. Grey line represents season\'s median",
+       y = "Teams scoring accuracy",
+       x = "")
+
+```
+
+
+There definitely is an association between accuracy and winning for Melbourne, which is expected.
+
+How is the distribution of relative accuracy?
+
+```{r Relative scoring accuracy}
+q4.acc.df() %>%
+  group_by(tm, tm.res, seas) %>%
+  mutate(games = n()) %>%
+  ungroup() %>%
+  filter(tm.res != "draw") %>% # ,
+         # tm == "Melbourne") %>%
+  ggplot(aes(x = tm.res, y = tm.rel.acc)) +
+  geom_hline(aes(yintercept = 0), colour = "grey") +
+  geom_boxplot() +
+  facet_grid(~ seas) +
+  # geom_text(aes(label = games, y = -0.6)) +
+  scale_y_continuous(labels = scales::percent) +
+  labs(title = "Relative scoring accuracy for all teams",
+       subtitle = "Percentage of scoring shots that are goals, relative to opponent",
+       y = "Teams scoring accuracy rel to opponent",
+       x = "")
+
+```
+Not surprisingly, there is a clear association between the relative scoring accuracy and whether a team wins the match.
+
+
+Looking at a scatterplot of the share of the total scoring shots versus the score of the total score, there is a small number of games where teams had a smaller number of scoring shots but still won the game.
+
+```{r scoring shots vs total scores}
+
+q4.acc.df() %>%
+  filter(seas == 2017) %>%
+  ggplot((aes(x = tm.Q4.ratio.sh, y = tm.Q4.ratio.sc))) +
+  geom_point(aes(colour = tm.res)) +
+  # geom_abline(aes(intercept = 0, slope = 1), linetype = 2) +
+  geom_vline(aes(xintercept = 0.5), linetype = 2) +
+  geom_hline(aes(yintercept = 0.5), linetype = 2) +
+  labs(title = "Ratio of scoring shots vs ratio of final scores in 2017",
+       x = "share of total scoring shots for the game",
+       y = "share of total scores for the game",
+       colour = "result") +
+  geom_text(aes(label = "more shots but lost", x = 0.9,
+                y = 0.45), data = tibble(x = 1), vjust = "bottom", hjust = "right") +
+  geom_text(aes(label = "more shots and won", x = 0.9,
+                y = 0.55), data = tibble(x = 1), vjust = "top", hjust = "right") +
+  geom_text(aes(label = "fewer shots and lost", x = 0.1,
+                y = 0.45), data = tibble(x = 1), vjust = "bottom", hjust = "left") +
+  geom_text(aes(label = "fewer shots but won", x = 0.1,
+                y = 0.55), data = tibble(x = 1), vjust = "top", hjust = "left")
+
+```
+
+About 1 game in 9 sees a team win despite fewer scoring shots.
+
+```{r games won with fewer scoring shots}
+
+q4.acc.df() %>%
+  filter(tm.Q4.ratio.sh < 0.5, tm.Q4.ratio.sc >= 0.5) %>%
+  ggplot((aes(x = seas))) +
+  geom_bar() +
+  coord_flip() +
+  scale_y_continuous("number of games", position = "right",
+                     sec.axis = sec_axis(trans = (~. / 198), labels = scales::percent,
+                                         name = "Share of all games")) +
+  labs(title = "Games won by the team with fewer scoring shots",
+       subtitle = "About 1 game in 9 sees a team win despite fewer scoring shots",
+       x = "season")
+
+```
+
+
+### Explanation of Box Plots
+
+Box plots are extremely frequently used by data scientists to display how data is distributed.
+
+As an example, the chart here shows the distribution of scores for the 2017 competition found randomly on the internet.  The winner of the competition scoreed 135 and the largest group scored around 125.  There was a group clustered around 85, which possibly represents entrants who lost interest early in the season and failed to submit tips.
+
+The marks on the x-axis show the scores recorded, and the red marks represent the first 25% of entrants, the median score and the 75-percentile of entrants.
+
+
+```{r tipping scores bar chart, echo=FALSE, fig.width=7}
+
+tipping.res %>%
+  ggplot() +
+  geom_bar(aes(x = tip.sc.bin, y = ..prop..)) +
+  scale_y_continuous(labels = scales::percent) +
+  geom_rug(aes(tip.sc), sides = "b", colour = "grey") +
+  geom_rug(aes(x = quantile(tip.sc, 0.25)), sides = "b", colour = "red") +
+  geom_rug(aes(x = quantile(tip.sc, 0.5)), sides = "b", colour = "red") +
+  geom_rug(aes(x = quantile(tip.sc, 0.75)), sides = "b", colour = "red") +
+  scale_x_continuous(breaks = seq(70, 140, 5)) +
+  coord_cartesian(xlim = c(70,140)) +
+  labs(title = "2017 Tipping scores of a randomly chosen tipping competition",
+       x = "Final score. Red marks represent 25%, 50% and 75% of field",
+       y = "Share of all entries")
+
+
+```
+
+This chart shows the distribution represented as a box plot.  The lines on either side of the box represent the top and bottom 25% of scores, and the vertical line in the middle represents the median.  Sometimes, the average of the scores may be shown.
+
+Box plots allow a simpler visualisation of the distribution and take less space than a bar chart or histogram.  Obviously, some insights are not shown, such as the polarisation of scores in this case, but a good data scientist will show more details in a case-by-case basis.
+
+```{r tipping scores box plot, echo=FALSE, fig.height=2, fig.width=7}
+
+tipping.res %>%
+  ggplot(aes(x = factor(0))) +
+  geom_boxplot(aes(y = tip.sc)) +
+  scale_y_continuous(breaks = seq(70, 140, 5)) +
+  coord_flip(ylim = c(70, 140)) +
+  labs(title = "Distribtion represented as a box plot",
+       y = "final tipping score")
+
+```
+

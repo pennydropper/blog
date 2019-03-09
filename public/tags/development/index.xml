@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Development on Pennydropper - Lightbulb moments in Data Science</title>
+    <link>/tags/development/</link>
+    <description>Recent content in Development on Pennydropper - Lightbulb moments in Data Science</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en_us</language>
+    <lastBuildDate>Sat, 09 Mar 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/development/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Retrospective: Data Visualisation- Learning through critique</title>
+      <link>/2019/03/09/retrospective-data-visualisation-learning-through-critique/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/03/09/retrospective-data-visualisation-learning-through-critique/</guid>
+      <description>Introduction I’m not sure if the March 7 Data Science Melbourne Meetup’s last-minute speaker change classes as serendipity but the 3 replacement speakers presented highly commendable presentations at the last minute.
+It’s unfortunate that the planned presenter, Cole Nussbaumer Knaflic from the US and author of Storytelling with Data, was unable to present at the Meetup due to ill health. I’m told that Cole is an inspiring speaker and well worth seeing if possible.</description>
+    </item>
+    
+  </channel>
+</rss>
